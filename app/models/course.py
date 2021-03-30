@@ -10,7 +10,6 @@ class Course(db.Model):
   location = db.Column(db.String(20), nullable = False)
   description = db.Column(db.String(5000))
   imageURL = db.Column(db.Text, nullable = False)
-  ratings = db.Column(db.JSON, nullable = False)
   createdAt = db.Column(db.DateTime, default=db.func.current_timestamp())
   updatedAt = db.Column(db.DateTime, default=db.func.current_timestamp(), onupdate=db.func.current_timestamp())
 
@@ -23,6 +22,5 @@ class Course(db.Model):
       "location": self.location,
       "description": self.description,
       "imageURL": self.imageURL,
-      "ratings": self.ratings
     },
 

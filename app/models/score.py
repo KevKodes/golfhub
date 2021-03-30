@@ -5,24 +5,24 @@ class Score(db.Model):
   __tablename__ = 'scores'
 
   id = db.Column(db.Integer, primary_key = True)
-  userId = db.Column(db.Integer, db.ForeignKey('users.id'), nullable=False)
-  courseId = db.Column(db.Integer, db.ForeignKey('courses.id'), nullable=False)
-  roundDate = db.Column(db.DateTime, nullable=False)
-  teebox = db.Column(db.String(50), nullable=False)
-  scorecard = db.Column(db.JSON, nullable=False)
+  roundId = db.Column(db.Integer, db.ForeignKey('rounds.id'), nullable=False)
+  holeId = db.Column(db.Integer, db.ForeignKey('holes.id'), nullable=False)
+  score = db.Column(db.Integer, nullable=False)
+  numPutts = db.Column(db.Integer)
+  fairway = db.Column(db.Boolean)
   createdAt = db.Column(db.DateTime, default=db.func.current_timestamp())
   updatedAt = db.Column(db.DateTime, default=db.func.current_timestamp(), onupdate=db.func.current_timestamp())
 
-  user = db.relationship('User', backref="scores")
-  course = db.relationship('Course', backref="scores")
+  round = db.relationship('Round', backref="scores")
+  hole = db.relationship('Hole', backref="scores")
 
 
   def to_dict(self):
     return {
       "id": self.id,
-      "userId": self.userId,
-      "courseId": self.courseId,
-      "roundDate": self.roundDate,
-      "teebox": self.teebox,
-      "scorecard": self.scorecard
+      "roundId": self.roundId,
+      "holeId": self.holeId,
+      "score": self.score,
+      "numPutts": self.numPutts,
+      "fairway": self.fairway
     }
