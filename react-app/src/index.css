@@ -1,1 +1,12 @@
 /* TODO Add site wide styles */
+/* #263D51 is the dark blue 
+   #4B88Cb is the light blue
+   #A7CF3F is the light green 
+   #1C1C1C is dark font */
+body {
+  background-color: #EFEFEF;
+  color: #1c1c1c;
+  font-family: 'HelveticaNeue-Light', Helvetica, sans-serif;
+  font-size: 16px;
+  
+}

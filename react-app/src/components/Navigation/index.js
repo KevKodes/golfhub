@@ -1,29 +1,35 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
-import LogoutButton from './auth/LogoutButton';
+import LogoutButton from '../auth/LogoutButton';
+import './Navigation.css'
 
 const NavBar = ({ setAuthenticated }) => {
   return (
     <nav>
       <ul>
         <li>
-          <NavLink to="/" exact={true} activeClassName="active">
-            Home
-          </NavLink>
-        </li>
-        <li>
           <NavLink to="/login" exact={true} activeClassName="active">
             Login
           </NavLink>
         </li>
         <li>
-          <NavLink to="/sign-up" exact={true} activeClassName="active">
+          <NavLink to="/signup" exact={true} activeClassName="active">
             Sign Up
           </NavLink>
         </li>
         <li>
-          <NavLink to="/users" exact={true} activeClassName="active">
-            Users
+          <NavLink to="/dashboard" exact={true} activeClassName="active">
+            Dashboard
+          </NavLink>
+        </li>
+        <li>
+          <NavLink to="/stats" exact={true} activeClassName="active">
+            Stats
+          </NavLink>
+        </li>
+        <li>
+          <NavLink to="/add_score" exact={true} activeClassName="active">
+            Add a Score
           </NavLink>
         </li>
         <li>
