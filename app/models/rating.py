@@ -12,5 +12,5 @@ class Rating(db.Model):
   createdAt = db.Column(db.DateTime, default=db.func.current_timestamp())
   updatedAt = db.Column(db.DateTime, default=db.func.current_timestamp(), onupdate=db.func.current_timestamp())
 
-  course = db.relationship('Course', backref="ratings")
-  teebox = db.relationship('Teebox', backref="ratings")
+  # course = db.relationship('Course', backref="ratings")
+  # teebox = db.relationship('Teebox', backref="ratings")

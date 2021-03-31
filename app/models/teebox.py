@@ -9,8 +9,9 @@ class Teebox(db.Model):
   teeboxName = db.Column(db.String(30), nullable=False)
   frontYardage = db.Column(db.Integer)
   backYardage = db.Column(db.Integer)
+  slope = db.Column(db.Integer, nullable=False)
+  rating = db.Column(db.Integer, nullable=False)
   createdAt = db.Column(db.DateTime, default=db.func.current_timestamp())
   updatedAt = db.Column(db.DateTime, default=db.func.current_timestamp(), onupdate=db.func.current_timestamp())
 
   course = db.relationship('Course', backref="teeboxes")
-  
