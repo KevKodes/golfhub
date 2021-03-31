@@ -1,8 +1,8 @@
-"""redo
+"""upgrade location string len
 
-Revision ID: 70dfd4a94751
+Revision ID: 7329ef02837b
 Revises: 
-Create Date: 2021-03-30 22:21:18.079039
+Create Date: 2021-03-31 11:50:44.346748
 
 """
 from alembic import op
@@ -10,7 +10,7 @@ import sqlalchemy as sa
 
 
 # revision identifiers, used by Alembic.
-revision = '70dfd4a94751'
+revision = '7329ef02837b'
 down_revision = None
 branch_labels = None
 depends_on = None
@@ -22,7 +22,7 @@ def upgrade():
     sa.Column('id', sa.Integer(), nullable=False),
     sa.Column('courseName', sa.String(length=40), nullable=False),
     sa.Column('address', sa.String(length=100), nullable=False),
-    sa.Column('location', sa.String(length=20), nullable=False),
+    sa.Column('location', sa.String(length=50), nullable=False),
     sa.Column('description', sa.String(length=5000), nullable=True),
     sa.Column('imageURL', sa.Text(), nullable=False),
     sa.Column('createdAt', sa.DateTime(), nullable=True),
@@ -57,7 +57,6 @@ def upgrade():
     )
     op.create_table('holes',
     sa.Column('id', sa.Integer(), nullable=False),
-    sa.Column('courseId', sa.Integer(), nullable=False),
     sa.Column('teeboxId', sa.Integer(), nullable=False),
     sa.Column('holeNumber', sa.Integer(), nullable=False),
     sa.Column('par', sa.Integer(), nullable=False),
@@ -65,19 +64,16 @@ def upgrade():
     sa.Column('handicap', sa.Integer(), nullable=False),
     sa.Column('createdAt', sa.DateTime(), nullable=True),
     sa.Column('updatedAt', sa.DateTime(), nullable=True),
-    sa.ForeignKeyConstraint(['courseId'], ['courses.id'], ),
     sa.ForeignKeyConstraint(['teeboxId'], ['teeboxes.id'], ),
     sa.PrimaryKeyConstraint('id')
     )
     op.create_table('rounds',
     sa.Column('id', sa.Integer(), nullable=False),
     sa.Column('userId', sa.Integer(), nullable=False),
-    sa.Column('courseId', sa.Integer(), nullable=False),
     sa.Column('teeboxId', sa.Integer(), nullable=False),
     sa.Column('roundDate', sa.DateTime(), nullable=False),
     sa.Column('createdAt', sa.DateTime(), nullable=True),
     sa.Column('updatedAt', sa.DateTime(), nullable=True),
-    sa.ForeignKeyConstraint(['courseId'], ['courses.id'], ),
     sa.ForeignKeyConstraint(['teeboxId'], ['teeboxes.id'], ),
     sa.ForeignKeyConstraint(['userId'], ['users.id'], ),
     sa.PrimaryKeyConstraint('id')
