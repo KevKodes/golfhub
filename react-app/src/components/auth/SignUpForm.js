@@ -1,8 +1,10 @@
 import React, { useState } from "react";
+import { useDispatch } from "react-redux";
 import { Redirect } from 'react-router-dom';
-import { signUp } from '../../store/auth';
+import { signUp, setUser } from '../../store/auth';
 
 const SignUpForm = ({authenticated, setAuthenticated}) => {
+  const dispatch = useDispatch();
   const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -13,6 +15,7 @@ const SignUpForm = ({authenticated, setAuthenticated}) => {
     if (password === repeatPassword) {
       const user = await signUp(username, email, password);
       if (!user.errors) {
+        dispatch(setUser(user));
         setAuthenticated(true);
       }
     }
