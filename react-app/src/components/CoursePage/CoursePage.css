@@ -16,10 +16,22 @@
 .course-main {
   display: flex;
   flex-direction: column;
+  background-color: white;
+  margin: 8px;
+  padding: 16px;
+}
+
+.course-sidebar {
+  background-color: white;
+  margin: 8px;
+  padding: 16px;
 }
 
 .course-bottom {
   display: flex;
+  flex-direction: column;
   justify-content: center;
-  
+  background-color: white;
+  margin: 8px;
+  padding: 16px;
 }
