@@ -24,5 +24,12 @@ class Score(db.Model):
       "holeId": self.holeId,
       "score": self.score,
       "numPutts": self.numPutts,
-      "fairway": self.fairway
+      "fairway": self.fairway,
+      "hole": {
+        "teeboxId": self.hole.teeboxId,
+        "holeNumber": self.hole.holeNumber,
+        "par": self.hole.par,
+        "yardage": self.hole.yardage,
+        "handicap": self.hole.handicap,
+      }
     }
