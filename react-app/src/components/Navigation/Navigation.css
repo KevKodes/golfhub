@@ -4,8 +4,10 @@ nav {
   display: flex;
   align-items: center;
   position: fixed;
+  justify-content: flex-end;
   width: 100%;
   top: 0px;
+  left: 0px;
 }
 
 nav ul {
