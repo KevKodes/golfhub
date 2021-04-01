@@ -22,5 +22,5 @@ class Course(db.Model):
       "location": self.location,
       "description": self.description,
       "imageURL": self.imageURL,
-    },
+    }
 
