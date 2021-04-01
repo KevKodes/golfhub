@@ -2,3 +2,24 @@
   position: relative;
   top: 60px;
 }
+
+.course-info-wrapper {
+  display: flex;
+  flex-direction: column;
+}
+
+.course-top {
+  display: flex;
+  flex-direction: row;
+}
+
+.course-main {
+  display: flex;
+  flex-direction: column;
+}
+
+.course-bottom {
+  display: flex;
+  justify-content: center;
+  
+}
