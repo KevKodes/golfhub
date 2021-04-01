@@ -1,5 +1,6 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
+import './Dashboard.css'
 
 const Dashboard = () => {
   const sessionUser = useSelector(state => state.session?.user)
