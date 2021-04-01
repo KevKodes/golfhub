@@ -27,9 +27,11 @@ const NavBar = ({ setAuthenticated }) => {
             Stats
           </NavLink>
         </li>
-        <li>
+        <li className="nav-add-score">
           <NavLink to="/add_score" exact={true} activeClassName="active">
-            Add a Score
+            <div className="text">
+              Add a Score
+            </div>
           </NavLink>
         </li>
         <li>

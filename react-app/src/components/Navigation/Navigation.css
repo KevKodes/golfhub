@@ -1,13 +1,33 @@
 nav {
   background-color: white;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  position: fixed;
+  width: 100%;
+  top: 0px;
 }
 
 nav ul {
   display: flex;
   flex-direction: row;
+  height: 40px;
+  align-items: center;
 }
 
 nav li {
   padding: 8px;
   list-style-type: none;
+}
+
+.nav-add-score {
+  background-color: #263D51;
+  border: 1px solid #263D51;
+  border-radius: 20px;
+
+}
+
+.nav-add-score a {
+  color: white;
+  text-decoration: none;
 }

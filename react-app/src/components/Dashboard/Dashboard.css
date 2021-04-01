@@ -2,7 +2,7 @@
 /* Main */
 .dash-body {
   display: grid;
-  grid-template-columns: 2fr 1fr;
+  grid-template-columns: 1.5fr 1fr;
   grid-template-areas: 
   "content sidebar";
 }
@@ -27,6 +27,8 @@
 .inner-rounds-wrapper {
   border-bottom: 3px solid #A7CF3F;
   width: 80%;
+  margin: 30px 16px;
+  padding-bottom: 30px;
 }
 
 .inner-card {
@@ -36,6 +38,10 @@
   display: flex;
   flex-direction: column;
   padding: 16px;
+}
+
+.inner-card p {
+  font-size: 20px;
 }
 
 .round-stats,
@@ -49,6 +55,12 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  width: 25%;
+  margin: 8px;
+}
+
+.stats-section p {
+  font-size: 16px;
 }
 
 .stats-circle {
@@ -57,7 +69,7 @@
   border: 1px solid #A7CF3F;
   border-radius: 100%;
   font-size: 27px;
-  padding: 20px;
+  padding: 25%;
 }
 
 
