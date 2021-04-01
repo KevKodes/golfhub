@@ -68,5 +68,5 @@ def get_dash_rounds(id):
     }
     dashboard_data.append(new_round_data)
 
-  return {"data": dashboard_data}
+  return {"dashboard_rounds": dashboard_data}
   # return {"rounds": [round.to_dict() for round in rounds_and_tees]}
