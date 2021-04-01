@@ -17,12 +17,19 @@ const Dashboard = () => {
 
   return (
     <div className="full-dashboard">
-      <h1>Welcome to the user dashboard</h1>
-      <p>You are logged in as {sessionUser?.userName}</p>
-      <div className="rounds-wrapper">
-        { dashRounds && dashRounds.map((round, idx) => (
-          <RoundCard key={idx} round={round} />
-        ))}
+      <h1>Activity Feed</h1>
+      <div className="dash-body">
+        <div className="dash-body-left">
+          <div className="rounds-wrapper">
+            { dashRounds && dashRounds.map((round, idx) => (
+              <RoundCard key={idx} round={round} />
+            ))}
+          </div>
+        </div>
+        <div className="dash-body-right">
+          <p>side bar for additional cards</p>
+          
+        </div>        
       </div>
     </div>
 

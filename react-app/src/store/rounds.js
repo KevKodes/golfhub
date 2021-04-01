@@ -13,7 +13,6 @@ export const getDashboardRounds = (userId) => async (dispatch) => {
 
   if (response.ok) {
     const rounds = await response.json()
-    console.log('ROUNDS IN THE THUNK RESPONSE: ', rounds)
     dispatch(loadDash(rounds))
   }
 }
