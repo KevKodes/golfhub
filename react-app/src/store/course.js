@@ -19,11 +19,12 @@ const initialState = {}
 const courseReducer = (state = initialState, action) => {
   switch (action.type) {
     case LOAD_COURSES:
-      const loadedCourses = {}
-      action.list.courses.forEach(course => loadedCourses[course.id] = course)
+      // const loadedCourses = {}
+      // action.list.courses.forEach(course => loadedCourses[course.id] = course)
+      const loadedCourses = [...action.list.courses]
       return {
         ...state,
-        ...loadedCourses
+        courseList: loadedCourses
       }
     default:
       return state;
