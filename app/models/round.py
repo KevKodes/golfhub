@@ -15,3 +15,20 @@ class Round(db.Model):
   user = db.relationship('User', backref="rounds")
   # course = db.relationship('Course', backref="rounds")
   teebox = db.relationship('Teebox', backref="rounds")
+
+
+  def to_dict(self):
+    return {
+      "id": self.id,
+      "userId": self.userId,
+      "teeboxId": self.teeboxId,
+      "roundDate": self.roundDate,
+      "teebox": {
+        "teeboxName": self.teebox.teeboxName,
+        "courseId": self.teebox.courseId,
+        "frontYardage": self.teebox.frontYardage,
+        "backYardage": self.teebox.backYardage,
+        "slope": self.teebox.slope,
+        "rating": self.teebox.rating
+      }
+    }
