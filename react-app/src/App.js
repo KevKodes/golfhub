@@ -10,6 +10,7 @@ import NavBar from "./components/Navigation";
 import Dashboard from "./components/Dashboard";
 import Stats from "./components/Stats";
 import AddScore from "./components/AddScore";
+import CoursePage from './components/CoursePage';
 
 function App() {
   const dispatch = useDispatch();
@@ -57,8 +58,8 @@ function App() {
         <ProtectedRoute path="/add_score" exact={true} authenticated={authenticated}>
           <AddScore />
         </ProtectedRoute>
-        <ProtectedRoute path="/course/:courseName" exact={true} authenticated={authenticated}>
-          <h1>Add a course component</h1>
+        <ProtectedRoute path="/course/:courseId" exact={true} authenticated={authenticated}>
+          <CoursePage />
         </ProtectedRoute>
       </Switch>
     </>
