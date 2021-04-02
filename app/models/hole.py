@@ -16,3 +16,14 @@ class Hole(db.Model):
 
   # course = db.relationship('Course', backref="holes")
   teebox = db.relationship('Teebox', backref="holes")
+
+
+  def to_dict(self):
+    return {
+      "id": self.id,
+      "teeboxId": self.teeboxId,
+      "holeNumber": self.holeNumber,
+      "par": self.par,
+      "yardage": self.yardage,
+      "handicap": self.handicap
+    }
