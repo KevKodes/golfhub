@@ -15,3 +15,15 @@ class Teebox(db.Model):
   updatedAt = db.Column(db.DateTime, default=db.func.current_timestamp(), onupdate=db.func.current_timestamp())
 
   course = db.relationship('Course', backref="teeboxes")
+
+
+  def to_dict(self):
+    return {
+      "id": self.id,
+      "courseId": self.courseId,
+      "teeboxName": self.teeboxName,
+      "frontYardage": self.frontYardage,
+      "backYardage": self.backYardage,
+      "slope": self.slope,
+      "rating": self.rating
+    }

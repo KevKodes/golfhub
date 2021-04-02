@@ -9,6 +9,7 @@ nav {
   top: 0px;
   left: 0px;
   padding: 0 16px;
+  z-index: 5;
 }
 
 nav a {
