@@ -2,8 +2,8 @@ import React, { useState, useEffect } from "react";
 import { useDispatch } from 'react-redux';
 import { Route, Switch } from "react-router-dom";
 import ProtectedRoute from "./components/auth/ProtectedRoute";
-import { authenticate } from "./store/auth";
-import * as sessionActions from "./store/auth";
+import { authenticate, restoreUser } from "./store/auth";
+// import * as sessionActions from "./store/auth";
 import LoginForm from "./components/auth/LoginForm";
 import SignUpForm from "./components/auth/SignUpForm";
 import NavBar from "./components/Navigation";
@@ -24,7 +24,7 @@ function App() {
       if (!user.errors) {
         setAuthenticated(true);
         // setSessionUser(user);
-        dispatch(sessionActions.restoreUser());
+        dispatch(restoreUser());
       }
       setLoaded(true);
     })();
