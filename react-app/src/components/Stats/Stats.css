@@ -1,0 +1,19 @@
+.stats-wrapper {
+  position: relative;
+  top: 60px;
+  display: flex;
+  flex-direction: column;
+}
+
+.stats-header {
+  display: flex;
+}
+
+.stats-body {
+  display: flex;
+  flex-direction: row;
+}
+
+.chart-wrapper {
+  background-color: white;
+}

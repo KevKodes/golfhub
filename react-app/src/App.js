@@ -3,7 +3,6 @@ import { useDispatch } from 'react-redux';
 import { Route, Switch } from "react-router-dom";
 import ProtectedRoute from "./components/auth/ProtectedRoute";
 import { authenticate, restoreUser } from "./store/auth";
-// import * as sessionActions from "./store/auth";
 import LoginForm from "./components/auth/LoginForm";
 import SignUpForm from "./components/auth/SignUpForm";
 import NavBar from "./components/Navigation";
@@ -16,14 +15,12 @@ function App() {
   const dispatch = useDispatch();
   const [authenticated, setAuthenticated] = useState(false);
   const [loaded, setLoaded] = useState(false);
-  // const [sessionUser, setSessionUser] = useState({});
 
   useEffect(() => {
     (async() => {
       const user = await authenticate();
       if (!user.errors) {
         setAuthenticated(true);
-        // setSessionUser(user);
         dispatch(restoreUser());
       }
       setLoaded(true);
