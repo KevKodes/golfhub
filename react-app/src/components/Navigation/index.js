@@ -17,19 +17,16 @@ const NavBar = ({ setAuthenticated }) => {
   useEffect(() => {
     dispatch(getCourses());
   },[dispatch])
-
-  // update the dropdown when searchString changes
-  const filterCourses = str => {
-    const string = str.toLowerCase();
-    const filteredList = courses?.filter(course => (
-      course.courseName.toLowerCase().includes(string) //|| course.cuisineType.toLowerCase().includes(string)
-    ))
-    return filteredList
-  }
-
+  
   // logic for when to show the search dropdown
   useEffect(() => {
-    // setErrors([])
+    const filterCourses = str => {
+      const string = str.toLowerCase();
+      const filteredList = courses?.filter(course => (
+        course.courseName.toLowerCase().includes(string) //|| course.cuisineType.toLowerCase().includes(string)
+      ))
+      return filteredList
+    }
     const parsedList = filterCourses(searchString)
 
     if ((parsedList && parsedList.length === 1 && parsedList[0].name === searchString) ||
@@ -42,7 +39,7 @@ const NavBar = ({ setAuthenticated }) => {
       setSearchReturn(parsedList);
       setShowDropdown(true)
     }
-  }, [searchString])
+  }, [searchString, courses])
 
   // Redirect to the course page
   const handleCourseRedirect = (course) => {
