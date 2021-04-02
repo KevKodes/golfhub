@@ -4,7 +4,7 @@ from app.models import db, Course, Teebox, Hole
 course_routes = Blueprint('courses', __name__)
 
 
-@course_routes.route('/')
+@course_routes.route('')
 def get_all_courses():
   courses = Course.query.all()
   return {"courses": [course.to_dict() for course in courses]}

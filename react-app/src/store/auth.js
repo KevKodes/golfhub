@@ -11,7 +11,7 @@ const removeUser = () => ({
 });
 
 export const authenticate = async() => {
-  const response = await fetch('/api/auth/',{
+  const response = await fetch('/api/auth',{
     headers: {
       'Content-Type': 'application/json'
     }
@@ -61,7 +61,7 @@ export const signUp = async (userName, email, password) => {
 }
 
 export const restoreUser = () => async (dispatch) => {
-  const response = await fetch("/api/auth/");
+  const response = await fetch("/api/auth");
   const data = await response.json();
   dispatch(setUser(data));
   return response;
