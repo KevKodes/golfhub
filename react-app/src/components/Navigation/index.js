@@ -50,7 +50,7 @@ const NavBar = ({ setAuthenticated }) => {
   return (
     <nav>
       <div className="nav-left">
-        <NavLink to="/dashboard" exact={true} activeClassName="active">
+        <NavLink to="/" exact={true} activeClassName="active">
           GolfHub
         </NavLink>
       </div>
@@ -76,7 +76,7 @@ const NavBar = ({ setAuthenticated }) => {
       </div>
       <ul>
         <li>
-          <NavLink to="/dashboard" exact={true} activeClassName="active">
+          <NavLink to="/" exact={true} activeClassName="active">
             Dashboard
           </NavLink>
         </li>

@@ -14,6 +14,47 @@
   flex-direction: row;
 }
 
+.stats-menu {
+  margin: 16px;
+}
+
+.stats-menu h1 {
+  border-bottom: 4px solid #4B88Cb;
+  font-size: 27px;
+}
+
+.stats-menu p:hover {
+  cursor: pointer;
+  text-decoration: underline;
+  color: #A7CF3F;
+}
+
+.stats-menu--green {
+  color: #A7CF3F;
+}
+
 .chart-wrapper {
   background-color: white;
+  margin: 16px;
+  padding-bottom: 50px;
+  overflow: visible;
+}
+
+.chart-wrapper h3 {
+  border-bottom: 4px solid #4B88Cb;
+  margin: 8px;
+  padding: 8px;
+  font-size: 24px;
+  font-family: 'Oswald-Light';
+}
+
+.recharts-surface {
+  overflow: visible;
+  height: auto;
+}
+
+.chart-bottom {
+  height: 50px;
+  color: white;
+  margin: 25px;
 }
