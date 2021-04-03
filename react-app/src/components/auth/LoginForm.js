@@ -36,7 +36,7 @@ const LoginForm = ({ authenticated, setAuthenticated }) => {
   };
 
   if (authenticated) {
-    history.push('/dashboard');
+    history.push('/');
   }
 
   return (
