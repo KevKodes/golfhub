@@ -126,11 +126,16 @@ const Stats = () => {
             />
             <YAxis
               // label={{ value: "Index", angle: -90, position: "insideLeft" }}
+              domain={[60, 110]}
             />
             <Tooltip />
             {/* <Legend /> */}
-            <Bar dataKey="score" barSize={15} fill="#263D51" />
-            <Line type="monotone" dataKey="average" stroke="#A7CF3F" lineSize={10} />
+            <Bar 
+              dataKey="score"
+              barSize={20}
+              fill="#263D51"
+              label={{ value: "score", position:"top" }} />
+            <Line type="monotone" dataKey="average" stroke="#A7CF3F" strokeWidth={4} />
           </ComposedChart>
           <div className="chart-bottom">
             empty
