@@ -40,10 +40,6 @@ const LoginForm = ({ authenticated, setAuthenticated }) => {
     history.push('/signup')
   }
 
-  const handleLoginClick = () => {
-    console.log('log in click')
-  }
-
   if (authenticated) {
     history.push('/');
   }

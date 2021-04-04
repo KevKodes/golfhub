@@ -45,14 +45,6 @@ const SignUpForm = ({authenticated, setAuthenticated}) => {
     setAuthenticated(true);
   };
 
-  const handleSignupClick = () => {
-    history.push('/signup')
-  }
-
-  const handleLoginClick = () => {
-    console.log('log in click')
-  }
-
   if (authenticated) {
     return <Redirect to="/" />;
   }
