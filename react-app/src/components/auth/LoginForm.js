@@ -1,7 +1,8 @@
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
-import { useHistory, NavLink } from "react-router-dom";
+import { useHistory } from "react-router-dom";
 import { login, setUser } from "../../store/auth";
+import './Splash.css'
 
 const LoginForm = ({ authenticated, setAuthenticated }) => {
   const history = useHistory();
@@ -35,54 +36,65 @@ const LoginForm = ({ authenticated, setAuthenticated }) => {
     setAuthenticated(true);
   };
 
+  const handleSignupClick = () => {
+    history.push('/signup')
+  }
+
+  const handleLoginClick = () => {
+    console.log('log in click')
+  }
+
   if (authenticated) {
     history.push('/');
   }
 
   return (
-    <div className="login-wrapper">
-      <form onSubmit={onLogin}>
-        <div>
-          {errors.map((error) => (
-            <div>{error}</div>
-          ))}
+    <div className="login-page">
+      <div className="login-wrapper">
+        <div className="logo">
+          <img src="./tee.jpeg" alt="cool logo"/>
+          <h1>Golfhub</h1>
         </div>
-        <div>
-          <label htmlFor="email">Email</label>
-          <input
-            name="email"
-            type="text"
-            placeholder="Email"
-            value={email}
-            onChange={updateEmail}
-          />
+        <form onSubmit={onLogin}>
+          <div>
+            {errors.map((error) => (
+              <div>{error}</div>
+            ))}
+          </div>
+          <div>
+            <input
+              className="login-input"
+              name="email"
+              type="text"
+              placeholder="Email"
+              value={email}
+              onChange={updateEmail}
+            />
+          </div>
+          <div>
+            <input
+              className="login-input"
+              name="password"
+              type="password"
+              placeholder="Password"
+              value={password}
+              onChange={updatePassword}
+            />
+            <button type="submit">Login</button>
+          </div>
+        </form>
+        <button type="click" onClick={handleDemoClick} className="demoButton">
+          Demo User
+        </button>
+        <div className="signup-link-box">
+          <div className="login-line">
+            <p>Don't have an account?</p>
+          </div>
+          <button onClick={handleSignupClick}>Sign Up Free</button>
         </div>
-        <div>
-          <label htmlFor="password">Password</label>
-          <input
-            name="password"
-            type="password"
-            placeholder="Password"
-            value={password}
-            onChange={updatePassword}
-          />
-          <button type="submit">Login</button>
-        </div>
-      </form>
-      <button type="click" onClick={handleDemoClick} className="demoButton">
-        Demo User
-      </button>
-      <div className="signup-link-box">
-        <div className="signup-link-text">
-          Don't have an account?&nbsp;
-            <NavLink
-            to="/signup"
-            style={{ textDecoration: "none" }}
-            className="signUp"
-          >
-            Sign up
-            </NavLink>
-        </div>
+      </div>
+      <div className="login-image">
+        <img src="https://www.thegrint.com/images/landing/free/background_free.png" alt="just a background"/>
       </div>
     </div>
   );
