@@ -60,6 +60,7 @@ def get_dash_rounds(id):
     course_id = round.teebox.courseId
     course_name = next(course.courseName for course in courses if course.id == course_id)
     new_round_data = {
+      "courseId": course_id,
       "roundId": round.id,
       "round_data": round_data,
       "roundDate": round.roundDate,

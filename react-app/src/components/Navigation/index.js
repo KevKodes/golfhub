@@ -106,16 +106,6 @@ const NavBar = ({ setAuthenticated }) => {
           </div>
         </div>
         <ul>
-          {/* <li>
-            <NavLink to="/" exact={true} activeClassName="active">
-              Dashboard
-            </NavLink>
-          </li>
-          <li>
-            <NavLink to="/stats" exact={true} activeClassName="active">
-              Stats
-            </NavLink>
-          </li> */}
           <li className="nav-add-score">
             <NavLink to="/add_score" exact={true} activeClassName="active">
               <p className="add-score-text">
