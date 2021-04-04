@@ -1,0 +1,14 @@
+.addscore-wrapper {
+  position: relative;
+  top: 60px;
+  left: 75px;
+  margin: 16px;
+}
+
+.full-addscore {
+  background-color: white;
+}
+
+.full-addscore form{
+  border-bottom: 4px solid #A7CF3F;
+}

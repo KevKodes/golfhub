@@ -1,13 +1,19 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
+import './AddScore.css';
 
 const AddScore = () => {
   const sessionUser = useSelector(state => state.session?.user)
 
   return (
-    <div className="full-addscore">
-      <h1>Hello {sessionUser?.userName}</h1>
-      <p>This is where you'll input a round</p>
+    <div className="addscore-wrapper">
+      <h1>ADD SCORE</h1>
+      <div className="full-addscore">
+        <form>
+          
+        </form>
+      </div>
+
     </div>
   )
 }

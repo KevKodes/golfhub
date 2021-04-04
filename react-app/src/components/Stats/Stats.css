@@ -1,6 +1,8 @@
 .stats-wrapper {
   position: relative;
   top: 60px;
+  left: 75px;
+  margin: 16px;
   display: flex;
   flex-direction: column;
 }
