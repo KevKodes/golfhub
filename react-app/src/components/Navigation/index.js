@@ -48,55 +48,77 @@ const NavBar = ({ setAuthenticated }) => {
   }
 
   return (
-    <nav>
-      <div className="nav-left">
-        <NavLink to="/" exact={true} activeClassName="active">
-          GolfHub
-        </NavLink>
-      </div>
-      <div className="nav-search">
-        <i className="fas fa-search"></i>
-        <input
-          className="search-bar"
-          value={searchString}
-          onChange={e => setSearchString(e.target.value)}
-          placeholder="Find Courses"
-        />
-        <div className="dropdown-search-list">
-          {showDropdown && searchReturn.map(course => (
-            <div
-              key={course.id}
-              className="search-list-block"
-              onClick={() => handleCourseRedirect(course)}
-            >
-              <div className="search-list-course-name">{course.courseName}</div>
-            </div>
-          ))}
+    <>
+      <div className="sidebar">
+        <p className="sidebar-name">
+          Kevin Pitzer
+        </p>
+        <div className="sidebar-links">
+          <a target="_blank" rel="noopener noreferrer" href="https://github.com/KevKodes">
+            <i className="fab fa-github fa-3x"></i>
+          </a>
+          <a target="_blank" rel="noopener noreferrer" href="https://www.linkedin.com/in/kevin-pitzer/">
+            <i className="fab fa-linkedin fa-3x"></i>
+          </a>
         </div>
       </div>
-      <ul>
-        <li>
+      <nav>
+        <div className="nav-left">
+          <div className="nav-logo">
+            <div className="placeholder">
+              empty
+            </div>
+            <img src="./tee.jpeg" alt="cool logo" />
+            <h1>Golfhub</h1>
+          </div>
           <NavLink to="/" exact={true} activeClassName="active">
-            Dashboard
+            GolfHub
           </NavLink>
-        </li>
-        <li>
-          <NavLink to="/stats" exact={true} activeClassName="active">
-            Stats
-          </NavLink>
-        </li>
-        <li className="nav-add-score">
-          <NavLink to="/add_score" exact={true} activeClassName="active">
-            <p className="add-score-text">
-              Add a Score
-            </p>
-          </NavLink>
-        </li>
-        <li>
-          <LogoutButton setAuthenticated={setAuthenticated} />
-        </li>
-      </ul>
-    </nav>
+        </div>
+        <div className="nav-search">
+          <i className="fas fa-search"></i>
+          <input
+            className="search-bar"
+            value={searchString}
+            onChange={e => setSearchString(e.target.value)}
+            placeholder="Find Courses"
+          />
+          <div className="dropdown-search-list">
+            {showDropdown && searchReturn.map(course => (
+              <div
+                key={course.id}
+                className="search-list-block"
+                onClick={() => handleCourseRedirect(course)}
+              >
+                <div className="search-list-course-name">{course.courseName}</div>
+              </div>
+            ))}
+          </div>
+        </div>
+        <ul>
+          <li>
+            <NavLink to="/" exact={true} activeClassName="active">
+              Dashboard
+            </NavLink>
+          </li>
+          <li>
+            <NavLink to="/stats" exact={true} activeClassName="active">
+              Stats
+            </NavLink>
+          </li>
+          <li className="nav-add-score">
+            <NavLink to="/add_score" exact={true} activeClassName="active">
+              <p className="add-score-text">
+                Add a Score
+              </p>
+            </NavLink>
+          </li>
+          <li>
+            <LogoutButton setAuthenticated={setAuthenticated} />
+          </li>
+        </ul>
+      </nav>
+    </>
   );
 }
 
