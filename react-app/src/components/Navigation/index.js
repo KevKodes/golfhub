@@ -50,15 +50,28 @@ const NavBar = ({ setAuthenticated }) => {
   return (
     <>
       <div className="sidebar">
-        <p className="sidebar-name">
-          Kevin Pitzer
-        </p>
         <div className="sidebar-links">
+          <NavLink to="/" exact={true}>
+            <i className="fas fa-home fa-2x"></i>
+          </NavLink>
+          <NavLink to="/stats" exact={true} activeClassName="active">
+            <i className="far fa-chart-bar fa-2x"></i>
+          </NavLink>
+          <NavLink to="/add_score" exact={true}>
+            <i className="far fa-edit fa-2x"></i>
+          </NavLink>
+          <div className="sidebar-separator">
+            {/* <i class="fas fa-ellipsis-h fa-2x"></i> */}
+            ___
+          </div>
+          <p className="sidebar-name">
+            Kevin Pitzer
+          </p>
           <a target="_blank" rel="noopener noreferrer" href="https://github.com/KevKodes">
-            <i className="fab fa-github fa-3x"></i>
+            <i className="fab fa-github fa-2x"></i>
           </a>
           <a target="_blank" rel="noopener noreferrer" href="https://www.linkedin.com/in/kevin-pitzer/">
-            <i className="fab fa-linkedin fa-3x"></i>
+            <i className="fab fa-linkedin fa-2x"></i>
           </a>
         </div>
       </div>
@@ -71,9 +84,6 @@ const NavBar = ({ setAuthenticated }) => {
             <img id="nav-logo-pic" src="./tee.jpeg" alt="cool logo" />
             <h1>Golfhub</h1>
           </div>
-          {/* <NavLink to="/" exact={true} activeClassName="active">
-            GolfHub
-          </NavLink> */}
         </div>
         <div className="nav-search">
           <i className="fas fa-search"></i>
@@ -96,7 +106,7 @@ const NavBar = ({ setAuthenticated }) => {
           </div>
         </div>
         <ul>
-          <li>
+          {/* <li>
             <NavLink to="/" exact={true} activeClassName="active">
               Dashboard
             </NavLink>
@@ -105,7 +115,7 @@ const NavBar = ({ setAuthenticated }) => {
             <NavLink to="/stats" exact={true} activeClassName="active">
               Stats
             </NavLink>
-          </li>
+          </li> */}
           <li className="nav-add-score">
             <NavLink to="/add_score" exact={true} activeClassName="active">
               <p className="add-score-text">

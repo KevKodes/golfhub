@@ -89,7 +89,6 @@ nav a {
   position: absolute;
   top: 50px;
   width: 100%;
-  border: 1px solid #A7CF3F;
 }
 
 .search-list-block {
@@ -102,7 +101,7 @@ nav a {
   align-items: center;
   justify-content: space-between;
   padding: 0 16px;
-  border-radius: 4px;
+  border: 1px solid #A7CF3F;
 }
 
 .search-list-block:hover {
@@ -137,6 +136,10 @@ nav li {
   height: 40px;
 }
 
+.nav-add-score a:hover {
+  color: #A7CF3F;
+}
+
 .nav-add-score a {
   color: white;
   text-decoration: none;
@@ -147,6 +150,21 @@ nav li {
 
 .add-score-text {
   padding: 0 30px;
+}
+
+#logout-butt {
+  background-color: #A7CF3F;
+  border-radius: 20px;
+  border: 1px solid #A7CF3F;
+  height: 40px;
+  padding: 0px 35px;
+  color: #041D2E;
+  font-size: 16px;
+}
+
+#logout-butt:hover {
+  color: white;
+  cursor: pointer;
 }
 
 /* ====Side bar navigation=== */
@@ -161,12 +179,27 @@ nav li {
   flex-direction: column;
   align-items: center;
   z-index: 6;
+  padding-top: 60px;
 }
 
 .sidebar-links {
   display: flex;
   flex-direction: column;
   align-items: center;
+}
+
+.sidebar-links a {
+  margin: 12px auto;
+}
+
+.sidebar-links i:hover {
+  color: #A7CF3F;
+}
+
+.sidebar-separator {
+  color: white;
+  margin-top: 24px;
+  margin-bottom: 32px;
 }
 
 .sidebar-name {
