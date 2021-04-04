@@ -68,12 +68,12 @@ const NavBar = ({ setAuthenticated }) => {
             <div className="placeholder">
               empty
             </div>
-            <img src="./tee.jpeg" alt="cool logo" />
+            <img id="nav-logo-pic" src="./tee.jpeg" alt="cool logo" />
             <h1>Golfhub</h1>
           </div>
-          <NavLink to="/" exact={true} activeClassName="active">
+          {/* <NavLink to="/" exact={true} activeClassName="active">
             GolfHub
-          </NavLink>
+          </NavLink> */}
         </div>
         <div className="nav-search">
           <i className="fas fa-search"></i>
