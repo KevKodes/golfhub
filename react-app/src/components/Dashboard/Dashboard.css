@@ -1,5 +1,12 @@
 
 /* Main */
+.full-dashboard {
+  position: relative;
+  top: 60px;
+  left: 75px;
+  margin: 16px;
+}
+
 .dash-body {
   display: grid;
   grid-template-columns: 1.5fr 1fr;
