@@ -1,6 +1,8 @@
 .course-wrapper {
   position: relative;
   top: 60px;
+  left: 75px;
+  margin: 16px;
 }
 
 .course-info-wrapper {
@@ -19,7 +21,12 @@
   background-color: white;
   margin: 8px;
   padding: 16px;
+  width: 900px;
 }
+
+/* .course-main img {
+  width: inherit;
+} */
 
 .course-sidebar {
   background-color: white;
