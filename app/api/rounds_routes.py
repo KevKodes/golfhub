@@ -12,19 +12,28 @@ def get_round_data(round_id):
   hit_fairways = 0
   total_fairways = 0
   total_putts = 0
+  one_putts = 0
+  three_putts = 0
   hit_greens = 0
   pars = 0
   birdies = 0
   eagles = 0
+  par_saves = 0
   for score in hole_scores:
     total_score += score.score
     total_putts += score.numPutts
+    if score.numPutts == 1:
+      one_putts += 1
+    elif score.numPutts == 3:
+      three_putts += 1
     if score.fairway != None:
       total_fairways += 1
       if score.fairway:
         hit_fairways += 1
     if score.score - score.numPutts <= score.hole.par - 2:
       hit_greens += 1
+    if score.score == score.hole.par and score.numPutts == 1:
+      par_saves += 1
     if score.hole.par == score.score + 2:
       eagles += 1
     elif score.hole.par == score.score + 1:
@@ -41,7 +50,10 @@ def get_round_data(round_id):
     "gir": gir,
     "pars": pars,
     "birdies": birdies,
-    "eagles": eagles
+    "eagles": eagles,
+    "three_putts": three_putts,
+    "par_saves": par_saves,
+    "one_putts": one_putts
   }
   
   return round_data
@@ -57,6 +69,7 @@ def get_dash_rounds(id):
   dashboard_data = []
   for round in rounds_and_tees:
     round_data = get_round_data(round.id)
+    # milestones = get_round_milestones(round.id)
     course_id = round.teebox.courseId
     course_name = next(course.courseName for course in courses if course.id == course_id)
     new_round_data = {
@@ -65,7 +78,9 @@ def get_dash_rounds(id):
       "round_data": round_data,
       "roundDate": round.roundDate,
       "courseName": course_name,
-      "teebox": round.teebox.teeboxName
+      "teebox": round.teebox.teeboxName,
+      "slope": round.teebox.slope,
+      "rating": round.teebox.rating
     }
     dashboard_data.append(new_round_data)
 

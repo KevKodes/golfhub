@@ -1,7 +1,7 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
 
-const RoundCard = ({ round, milestones }) => {
+const RoundCard = ({ round }) => {
   const girPercent = Math.floor(round.round_data.gir * 100)
   const firPercent = Math.floor(round.round_data.fir * 100)
 
@@ -10,6 +10,66 @@ const RoundCard = ({ round, milestones }) => {
   const fDate = wackDate.toDateString();
   const fArr = fDate.split(' ')
   const formattedDate = `${fArr[1]}, ${fArr[2]} ${fArr[3]}`
+
+  // get the milestones to pass to the round cards with the round data
+  const milestones = []
+  const stonesObj = round.round_data
+
+  if (parseInt(stonesObj.pars) > 0) {
+    milestones.push({
+      title: "Pars",
+      initial: stonesObj.pars
+    })
+  }
+
+  if (parseInt(stonesObj.birdies) > 0) {
+    milestones.push({
+      title: "Birdies",
+      initial: stonesObj.birdies
+    })
+  }
+
+  if (parseInt(stonesObj.eagles) > 0) {
+    milestones.push({
+      title: "Eagles",
+      initial: stonesObj.eagles
+    })
+  }
+
+  if (parseInt(stonesObj.one_putts) > 0) {
+    milestones.push({
+      title: "1-Putts",
+      initial: stonesObj.one_putts
+    })
+  }
+
+  if (parseInt(stonesObj.three_putts) === 0) {
+    milestones.push({
+      title: "No 3-Putts",
+      initial: 'P'
+    })
+  }
+
+  if (parseInt(stonesObj.fir) >= 0.7) {
+    milestones.push({
+      title: "Drive Acc%",
+      initial: Math.round(100 * stonesObj.fir) / 100
+    })
+  }
+
+  if (parseInt(stonesObj.gir) >= 0.7) {
+    milestones.push({
+      title: "Green Acc%",
+      initial: Math.round(100 * stonesObj.gir) / 100
+    })
+  }
+
+  if (parseInt(stonesObj.par_saves) > 0) {
+    milestones.push({
+      title: "Par Saves",
+      initial: stonesObj.par_saves
+    })
+  }
 
   return (
     <div className="inner-rounds-wrapper">
