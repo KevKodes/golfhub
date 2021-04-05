@@ -55,8 +55,10 @@
   padding: 16px;
 }
 
-.inner-card p {
+.inner-card h3 {
   font-size: 20px;
+  color: #263D51;
+  font-weight: 300;
 }
 
 .round-stats,
@@ -152,4 +154,29 @@
 
 .dash-card h3 {
   margin: 0;
+  color: #263D51;
+  font-size: 20px;
+  font-weight: 300;
+}
+
+.scores-card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.scores-card-header a {
+  display: flex;
+  text-decoration: none;
+  align-items: center;
+  color: #1c1c1c;
+}
+
+.scores-card-header a:hover {
+  color: #A7CF3F
+}
+
+.scores-card-header p {
+  font-size: 14px;
+  padding-left: 6px;
 }
