@@ -37,7 +37,8 @@ nav {
   padding-left: 8px;
   padding-top: 16px;
   font-size: 32px;
-  color: #263D51
+  color: #263D51;
+  font-family: "papyrus", 'Arial Narrow Bold', sans-serif;
 }
 
 nav a {
