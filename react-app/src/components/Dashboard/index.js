@@ -11,6 +11,8 @@ const Dashboard = () => {
   const sessionUser = useSelector(state => state.session?.user)
   const dashRounds = useSelector(state => state.rounds?.dashRounds)
   const [scorecardData, setScorecardData] = useState([])
+  const [handicap, setHandicap] = useState(null)
+  const [scoringAverage, setScoringAverage] = useState(null)
 
   //get the rounds for the user
   useEffect(() => {
@@ -20,9 +22,12 @@ const Dashboard = () => {
   },[dispatch, sessionUser])
 
   // set up the data for the scores card (last 5 scores)
+  // calculate the average score
+  // calculate the handicap
   useEffect(() => {
     let data = []
     if (dashRounds) {
+      //last 5 scores
       for (let i = 0; i < 5; i++) {
         const eachRound = dashRounds[i]
         let newScoreObj = {
@@ -31,8 +36,36 @@ const Dashboard = () => {
         }
         data.push(newScoreObj)
       }
+      setScorecardData(data)
+
+      //average score
+      let allScores = []
+      dashRounds.forEach(round => {
+        allScores.push(round.round_data.total_score)
+      });
+      const avgScore = allScores.reduce((acc, cv) => acc + cv) / allScores.length
+      setScoringAverage(Math.round(avgScore * 10) / 10)
+
+      // handicap (need course ratings for this)
+      let allHandicaps = []
+      dashRounds.forEach(round => {
+        const hcData = round.round_data
+        const cap = 15 // const cap = (hcData.total_score - hcData.course_rating) * 113 / hcData.course_slope
+        allHandicaps.push(cap)
+      });
+      // find the lowest 8 handicaps and take the avg
+      allHandicaps = allHandicaps.sort((a, b) => b - a)
+      if (allHandicaps.length < 8) {
+        const avgHC = allHandicaps.reduce((acc, cv) => acc + cv) / allHandicaps.length
+        setHandicap(avgHC)
+      } else {
+        const lowHandicaps = allHandicaps.slice(7)
+        const avgHC = lowHandicaps.reduce((acc, cv) => acc + cv) / 8
+        setHandicap(avgHC)
+      }
+
+
     }
-    setScorecardData(data)
   },[dashRounds])
 
   console.log(scorecardData)
@@ -64,7 +97,10 @@ const Dashboard = () => {
         <div className="dash-body-right">
           <div className="dash-cards-wrapper">
             <div className="dash-card user-card">
-              <div className="scores-card-header">
+              <div className="user-card-header">
+                <div className="user-card-img">
+                  <img src="./tee.jpeg" alt="cool logo" />
+                </div>
                 { sessionUser && (
                   <div className="user-card-info">
                     <h3>{sessionUser.userName}</h3>
@@ -72,16 +108,31 @@ const Dashboard = () => {
                     <div>{sessionUser.homeCourse}</div>
                   </div>
                 )}
-
               </div>
               <div className="style-strip">
                 empty text
               </div>
-            </div>
-            <div className="dash-card handicap-card">
-              <div className="scores-card-header">
-                <h3>Handicap Card</h3>
-                
+              <div className="user-card-bottom">
+                <div className="card-bot-section">
+                  <p>handicap index</p>
+                  <div className="bot-section-circle">
+                    {handicap && (
+                      <div>
+                        {handicap}
+                      </div>
+                    )}
+                  </div>
+                </div>
+                <div className="card-bot-section">
+                  <p>average score</p>
+                  <div className="bot-section-circle">
+                    {scoringAverage && (
+                      <div>
+                        {scoringAverage}
+                      </div>
+                    )}
+                  </div>
+                </div>
               </div>
             </div>
             <div className="dash-card scores-card">
