@@ -49,39 +49,24 @@ const Dashboard = () => {
       // handicap (need course ratings for this)
       let allHandicaps = []
       dashRounds.forEach(round => {
-        const hcData = round.round_data
-        const cap = 15 // const cap = (hcData.total_score - hcData.course_rating) * 113 / hcData.course_slope
+        const cap = (parseInt(round.round_data.total_score) - parseInt(round.rating)) * 113 / parseInt(round.slope)
         allHandicaps.push(cap)
       });
       // find the lowest 8 handicaps and take the avg
       allHandicaps = allHandicaps.sort((a, b) => b - a)
+      console.log('sorted handicaps: ', allHandicaps)
       if (allHandicaps.length < 8) {
         const avgHC = allHandicaps.reduce((acc, cv) => acc + cv) / allHandicaps.length
         setHandicap(avgHC)
       } else {
-        const lowHandicaps = allHandicaps.slice(7)
+        const lowHandicaps = allHandicaps.slice(0, 7)
+        console.log('low hcs: ', lowHandicaps)
         const avgHC = lowHandicaps.reduce((acc, cv) => acc + cv) / 8
-        setHandicap(avgHC)
+        console.log('average handicap: ', avgHC)
+        setHandicap(Math.round(avgHC * 10) / 10)
       }
-
-
     }
   },[dashRounds])
-
-  console.log(scorecardData)
-
-  // get the milestones to pass to the round cards with the round data
-
-  const milestones = [
-    {
-      title: "No 3 Putts",
-      initial: "P"
-    },
-    {
-      title: "Birdies",
-      initial: 3
-    }
-  ]
 
   return (
     <div className="full-dashboard">
@@ -90,7 +75,7 @@ const Dashboard = () => {
         <div className="dash-body-left">
           <div className="rounds-wrapper">
             { dashRounds && dashRounds.map((round, idx) => (
-              <RoundCard key={idx} round={round} milestones={milestones}/>
+              <RoundCard key={idx} round={round}/>
             ))}
           </div>
         </div>
