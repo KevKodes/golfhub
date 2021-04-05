@@ -51,17 +51,25 @@ const NavBar = ({ setAuthenticated }) => {
     <>
       <div className="sidebar">
         <div className="sidebar-links">
-          <NavLink to="/" exact={true}>
-            <i className="fas fa-home fa-2x"></i>
-          </NavLink>
-          <NavLink to="/stats" exact={true} activeClassName="active">
-            <i className="far fa-chart-bar fa-2x"></i>
-          </NavLink>
-          <NavLink to="/add_score" exact={true}>
-            <i className="far fa-edit fa-2x"></i>
-          </NavLink>
+          <div className="sidebar-link-wrapper">
+            <NavLink to="/" exact={true}>
+              <i className="fas fa-home fa-2x"></i>
+            </NavLink>
+            <div className="nav-label">Home</div>
+          </div>
+          <div className="sidebar-link-wrapper">
+            <NavLink to="/stats" exact={true} activeClassName="active">
+              <i className="far fa-chart-bar fa-2x"></i>
+            </NavLink>
+            <div className="nav-label">Stats</div>
+          </div>
+          <div className="sidebar-link-wrapper">
+            <NavLink to="/add_score" exact={true}>
+              <i className="far fa-edit fa-2x"></i>
+            </NavLink>
+            <div className="nav-label">Add a score</div>
+          </div>
           <div className="sidebar-separator">
-            {/* <i class="fas fa-ellipsis-h fa-2x"></i> */}
             ___
           </div>
           <p className="sidebar-name">

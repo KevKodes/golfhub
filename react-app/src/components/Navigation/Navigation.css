@@ -189,8 +189,27 @@ nav li {
   align-items: center;
 }
 
+.sidebar-link-wrapper {
+  position: relative;
+}
+
 .sidebar-links a {
   margin: 12px auto;
+}
+
+.nav-label {
+  display: none;
+  background-color: #263D51;
+  color: white;
+  position: absolute;
+  padding: 4px;
+  left: 65px;
+  top: 10px;
+  white-space: nowrap;
+}
+
+.sidebar-link-wrapper:hover .nav-label {
+  display: block;
 }
 
 .sidebar-links i:hover {
