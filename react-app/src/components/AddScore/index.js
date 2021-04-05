@@ -8,6 +8,7 @@ const AddScore = () => {
   return (
     <div className="addscore-wrapper">
       <h1>ADD SCORE</h1>
+      {sessionUser?.userName}
       <div className="full-addscore">
         <form>
           

@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import { NavLink } from 'react-router-dom';
 import RoundCard from './RoundCard';
 import { getDashboardRounds } from '../../store/rounds';
 import './Dashboard.css'
@@ -40,13 +41,26 @@ const Dashboard = () => {
         <div className="dash-body-right">
           <div className="dash-cards-wrapper">
             <div className="dash-card user-card">
-              <h3>User Card</h3>
+              { sessionUser && (
+                <div className="user-card-info">
+                  <h3>{sessionUser.userName}</h3>
+                  <div>{sessionUser.location}</div>
+                  <div>{sessionUser.homeCourse}</div>
+
+                </div>
+              )}
             </div>
             <div className="dash-card handicap-card">
               <h3>Handicap Card</h3>
             </div>
             <div className="dash-card scores-card">
-              <h3>Scores Card</h3>
+              <div className="scores-card-header">
+                <h3>Scores Card</h3>
+                <NavLink to="/stats" exact={true} activeClassName="active">
+                  <i className="far fa-chart-bar"></i>
+                  <p>Stats</p>
+                </NavLink>
+              </div>
             </div>
           </div>
         </div>        

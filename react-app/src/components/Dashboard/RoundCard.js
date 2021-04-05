@@ -20,7 +20,7 @@ const RoundCard = ({ round, milestones }) => {
         <p>{formattedDate} | {round.teebox} Tees</p>
       </div>
       <div className="inner-card">
-        <p>ROUND STATS</p>
+        <h3>ROUND STATS</h3>
         <div className="round-stats">
           <div className="stats-section">
             <p>Score</p>
@@ -47,7 +47,7 @@ const RoundCard = ({ round, milestones }) => {
             </div>
           </div>
         </div>
-        <p>ROUND MILESTONES</p>
+        <h3>ROUND MILESTONES</h3>
         <div className="round-milestones">
           {milestones && milestones.map((stone, index) => (
             <div key={index} className="each-milestone">
