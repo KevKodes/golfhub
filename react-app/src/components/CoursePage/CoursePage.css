@@ -24,16 +24,19 @@
   width: 900px;
 }
 
-/* .course-main img {
-  width: inherit;
-} */
+.course-main h2 {
+  color: #263D51;
+  font-size: 36px;
+}
 
+/* RIGHT SIDE BAR THING PART   */
 .course-sidebar {
   background-color: white;
   margin: 8px;
   padding: 16px;
 }
 
+/* SCORECARD PART */
 .course-bottom {
   display: flex;
   flex-direction: column;
@@ -41,4 +44,41 @@
   background-color: white;
   margin: 8px;
   padding: 16px;
+}
+
+.course-bottom h2,
+.course-sidebar h2 {
+  color: #263D51;
+  font-size: 30px;
+  font-weight: 500;
+  margin: 16px 8px;
+}
+
+.tee-ratings {
+  list-style-type: none;
+  margin: 4px 8px;
+}
+
+.score-card {
+  border-spacing: 0;
+  border-collapse: collapse;
+  table-layout: fixed;
+  margin: 8px;
+  width: 1700px;
+}
+
+.score-card td,
+.score-card th {
+  border: 1px solid #263D51;
+  width: 5px;
+  text-align: center;
+}
+
+.hole-col {
+  /* width: 100px; */
+}
+
+.score-card th {
+  font-weight: 600;
+  background-color: #A7CF3F;
 }
