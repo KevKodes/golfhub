@@ -36,6 +36,28 @@
   padding: 16px;
 }
 
+.facts-name {
+  color: #263D51;
+  font-size: 20px;
+}
+
+.course-sidebar-info {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 8px 0;
+}
+
+.info-chunk {
+  display: flex;
+  margin: 0 4px;
+}
+
+.info-chunk p {
+  font-weight: 600;
+  margin: 0;
+  padding-right: 6px;
+}
+
 /* SCORECARD PART */
 .course-bottom {
   display: flex;

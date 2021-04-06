@@ -20,21 +20,21 @@ const CoursePage = () => {
   useEffect(() => {
     if (scorecard) {
       // set up the hole index row and the par row
-      const teeId = scorecard.tees[0].id
+      const teeId = scorecard.tees[0]?.id
       let frontIdx = []
       let frontPar = []
       for (let i = 1; i < 10; i++) {
         const foundHole = scorecard.holes.find(hole => parseInt(hole.holeNumber) === parseInt(i) && parseInt(hole.teeboxId) === parseInt(teeId));
-        frontIdx.push(foundHole.handicap)
-        frontPar.push(foundHole.par)
+        frontIdx.push(foundHole?.handicap)
+        frontPar.push(foundHole?.par)
       }
       setFrontIndex(frontIdx)
       let backIdx = []
       let backPar = []
       for (let i = 10; i < 19; i++) {
         const foundHole = scorecard.holes.find(hole => parseInt(hole.holeNumber) === parseInt(i) && parseInt(hole.teeboxId) === parseInt(teeId));
-        backIdx.push(foundHole.handicap)
-        backPar.push(foundHole.par)
+        backIdx.push(foundHole?.handicap)
+        backPar.push(foundHole?.par)
       }
       setBackIndex(backIdx)
       // set up the par row
@@ -91,11 +91,34 @@ const CoursePage = () => {
             <div className="course-sidebar">
               <div className="course-sidebar-header">
                 <h2>Quick Facts</h2>
-                {pageCourse.courseName}
-                {pageCourse.address}
+                <div className="facts-name">{pageCourse.courseName}</div>
+              </div>
+              <div className="course-sidebar-info">
+                <div className="info-chunk">
+                  <p>Holes</p> 18  |
+                </div>
+                <div className="info-chunk">
+                  <p>Par</p> {cardPar[cardPar.length - 1]}  |
+                </div>
+                {scoreTees.length && (
+                  <div className="info-chunk">
+                    <p>Length</p> {scoreTees[0][scoreTees[0].length - 1]}  |
+                  </div>
+                )}
+                { scorecard?.tees && (
+                  <>
+                    <div className="info-chunk">
+                      <p>Slope</p> {scorecard.tees[0].slope}  |
+                    </div>
+                    <div className="info-chunk">
+                      <p>Rating</p> {scorecard.tees[0].rating}
+                    </div>
+                  </>
+                )}
               </div>
               <div id="map">
-                { pageCourse && <CourseLocation course={pageCourse}/> }
+                { <CourseLocation course={pageCourse}/> }
+                {pageCourse.address}
               </div>
             </div>
           </div>
