@@ -16,7 +16,6 @@ const CoursePage = () => {
   const scorecard = useSelector(state => state.courses?.scorecard)
 
   // set up the tee information to loop through when building the scorecard
-  // still need frontIndex, backIndex, cardPar(have to add up totals)
   useEffect(() => {
     if (scorecard) {
       // set up the hole index row and the par row
@@ -90,6 +89,7 @@ const CoursePage = () => {
             </div>
             <div className="course-sidebar">
               <div className="course-sidebar-header">
+                <h2>Quick Facts</h2>
                 {pageCourse.courseName}
                 {pageCourse.address}
               </div>
@@ -97,17 +97,17 @@ const CoursePage = () => {
           </div>
           <div className="course-bottom">
             <h2>Scorecard</h2>
-            <ul>
+            <div>
               { scorecard?.tees && scorecard.tees.map((tee, idx) => (
-                <li key={idx} className="tee-ratings">
+                <div key={idx} className="tee-ratings">
                   {tee.teeboxName} {tee.slope} / {tee.rating}
-                </li>
+                </div>
               ))}
-            </ul>
+            </div>
             <table className="score-card">
               <thead>
                 <tr>
-                  <th>HOLE</th>
+                  <th><div className="hole-col">HOLE</div></th>
                   <th>1</th>
                   <th>2</th>
                   <th>3</th>
@@ -133,7 +133,7 @@ const CoursePage = () => {
               </thead>
               <tbody>
                 <tr>
-                  <th>INDEX</th>
+                  <td>INDEX</td>
                   { frontIndex && frontIndex.map(hc => (
                     <td key={hc}>{hc}</td>
                   ))}
@@ -141,9 +141,11 @@ const CoursePage = () => {
                   {backIndex && backIndex.map(hc => (
                     <td key={hc}>{hc}</td>
                   ))}
+                  <td></td>
+                  <td></td>
                 </tr>
                 <tr>
-                  <th>PAR</th>
+                  <td>PAR</td>
                   { cardPar && cardPar.map((parVal, idx) => (
                     <td key={idx}>{parVal}</td>
                   ))}
