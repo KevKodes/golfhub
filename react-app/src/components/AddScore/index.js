@@ -1,5 +1,6 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
+import SelectCourse from './SelectCourse';
 import './AddScore.css';
 
 const AddScore = () => {
@@ -8,7 +9,7 @@ const AddScore = () => {
   return (
     <div className="addscore-wrapper">
       <h1>ADD SCORE</h1>
-      {sessionUser?.userName}
+      <SelectCourse />
       <div className="full-addscore">
         <form>
           
