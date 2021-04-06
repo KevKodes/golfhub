@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
 import { getScorecard } from '../../store/course';
+import CourseLocation from './CourseLocation';
 import './CoursePage.css';
 
 const CoursePage = () => {
@@ -92,6 +93,9 @@ const CoursePage = () => {
                 <h2>Quick Facts</h2>
                 {pageCourse.courseName}
                 {pageCourse.address}
+              </div>
+              <div id="map">
+                { pageCourse && <CourseLocation course={pageCourse}/> }
               </div>
             </div>
           </div>
