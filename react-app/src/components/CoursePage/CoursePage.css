@@ -34,17 +34,24 @@
   background-color: white;
   margin: 8px;
   padding: 16px;
+  font-size: 14px;
 }
 
-.facts-name {
+.sidebar-section {
+  border-bottom: 1px solid #D7D7D7;
+  margin-bottom: 30px;
+  padding-bottom: 30px;
+}
+
+.sidebar-section-header {
   color: #263D51;
   font-size: 20px;
+  margin-bottom: 12px;
 }
 
 .course-sidebar-info {
   display: flex;
   flex-wrap: wrap;
-  margin: 8px 0;
 }
 
 .info-chunk {
@@ -102,5 +109,6 @@
 
 .score-card th {
   font-weight: 600;
-  background-color: #A7CF3F;
+  background-color: #4B88Cb;
+  color: white;
 }
