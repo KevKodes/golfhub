@@ -191,6 +191,7 @@ nav li {
 
 .sidebar-link-wrapper {
   position: relative;
+  margin: 12px auto;
 }
 
 .sidebar-links a {
