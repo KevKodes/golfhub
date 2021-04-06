@@ -89,36 +89,41 @@ const CoursePage = () => {
               </div>
             </div>
             <div className="course-sidebar">
-              <div className="course-sidebar-header">
-                <h2>Quick Facts</h2>
-                <div className="facts-name">{pageCourse.courseName}</div>
+              <div className="course-sidebar-header sidebar-section">
+                <div className="sidebar-section-header">{pageCourse.courseName}</div>
+                <div>{pageCourse.address}</div>
               </div>
-              <div className="course-sidebar-info">
-                <div className="info-chunk">
-                  <p>Holes</p> 18  |
-                </div>
-                <div className="info-chunk">
-                  <p>Par</p> {cardPar[cardPar.length - 1]}  |
-                </div>
-                {scoreTees.length && (
+              <div className="sidebar-section">
+                <div className="sidebar-section-header">Quick Facts</div>
+                <div className="course-sidebar-info">
                   <div className="info-chunk">
-                    <p>Length</p> {scoreTees[0][scoreTees[0].length - 1]}  |
+                    <p>Holes</p> 18  |
                   </div>
-                )}
-                { scorecard?.tees && (
-                  <>
+                  <div className="info-chunk">
+                    <p>Par</p> {cardPar[cardPar.length - 1]}  |
+                  </div>
+                  {scoreTees.length && (
                     <div className="info-chunk">
-                      <p>Slope</p> {scorecard.tees[0].slope}  |
+                      <p>Length</p> {scoreTees[0][scoreTees[0].length - 1]}  |
                     </div>
-                    <div className="info-chunk">
-                      <p>Rating</p> {scorecard.tees[0].rating}
-                    </div>
-                  </>
-                )}
+                  )}
+                  { scorecard?.tees && (
+                    <>
+                      <div className="info-chunk">
+                        <p>Slope</p> {scorecard.tees[0].slope}  |
+                      </div>
+                      <div className="info-chunk">
+                        <p>Rating</p> {scorecard.tees[0].rating}
+                      </div>
+                    </>
+                  )}
+                </div>
               </div>
-              <div id="map">
-                { <CourseLocation course={pageCourse}/> }
-                {pageCourse.address}
+              <div id="map sidebar-section">
+                <div className="sidebar-section-header">
+                  Map View
+                </div>
+                  { <CourseLocation course={pageCourse}/> }
               </div>
             </div>
           </div>
