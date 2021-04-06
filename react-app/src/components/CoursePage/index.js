@@ -165,7 +165,7 @@ const CoursePage = () => {
               </thead>
               <tbody>
                 <tr>
-                  <td>INDEX</td>
+                  <th className="wide-col">INDEX</th>
                   { frontIndex && frontIndex.map(hc => (
                     <td key={hc}>{hc}</td>
                   ))}
@@ -177,7 +177,7 @@ const CoursePage = () => {
                   <td></td>
                 </tr>
                 <tr>
-                  <td>PAR</td>
+                  <th className="wide-col">PAR</th>
                   { cardPar && cardPar.map((parVal, idx) => (
                     <td key={idx}>{parVal}</td>
                   ))}
@@ -185,7 +185,12 @@ const CoursePage = () => {
                 { scoreTees && scoreTees.map((teeArr, idx) => (
                   <tr key={idx}>
                     {teeArr.map((eachHole, index) => (
-                      <td key={index}>{eachHole}</td>
+                      index === 0 ? (
+                        <th className="wide-col" key={index}>{eachHole}</th>
+                      ) : (
+                        <td key={index}>{eachHole}</td>
+
+                      )
                     ))}
                   </tr>
                 ))}

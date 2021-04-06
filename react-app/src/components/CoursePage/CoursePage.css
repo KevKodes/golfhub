@@ -73,6 +73,7 @@
   background-color: white;
   margin: 8px;
   padding: 16px;
+  width: 1650px;
 }
 
 .course-bottom h2,
@@ -93,7 +94,6 @@
   border-collapse: collapse;
   table-layout: fixed;
   margin: 8px;
-  width: 1700px;
 }
 
 .score-card td,
@@ -103,8 +103,8 @@
   text-align: center;
 }
 
-.hole-col {
-  /* width: 100px; */
+.wide-col {
+  width: 10%
 }
 
 .score-card th {
