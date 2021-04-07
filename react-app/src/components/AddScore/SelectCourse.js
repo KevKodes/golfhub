@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { getCourses } from '../../store/course';
+import { getCourseTees } from '../../store/teeboxes';
 import DatePicker from "react-datepicker";
-
 import './SelectCourse.css';
 import "react-datepicker/dist/react-datepicker.css";
 
@@ -10,11 +10,12 @@ const SelectCourse = () => {
   const dispatch = useDispatch();
   const [searchString, setSearchString] = useState('');
   const [showDropdown, setShowDropdown] = useState(null);
+  const [showTeeOptions, setShowTeeOptions] = useState(null);
   const [searchReturn, setSearchReturn] = useState([]);
-  const [roundCourseId, setRoundCourseId] = useState(null);
+  const [roundCourse, setRoundCourse] = useState(null);
   const [roundDate, setRoundDate] = useState(new Date());
   const [roundTee, setRoundTee] = useState(null);
-  const [courseTees, setCourseTees] = useState([]);
+  const courseTees = useSelector(state => state.teeboxes?.courseTees)
   const courses = useSelector(state => state.courses?.courseList);
 
   // get all of the courses
@@ -46,17 +47,25 @@ const SelectCourse = () => {
   }, [searchString, courses])
 
   const handleCourseSelection = (course) => {
-    setSearchString(course.courseName)
-    setRoundCourseId(course)
+    setSearchString("")
+    setRoundCourse(course)
     setShowDropdown(false)
+    setRoundTee(null)
+    setShowTeeOptions(false)
+    dispatch(getCourseTees(course.id))
   }
 
-  const handleTeeOptions = () => {
-    console.log('you gotta render the tees for the course')
+  const renderTeeOptions = () => {
+    if (showTeeOptions) {
+      setShowTeeOptions(false)
+    } else {
+      setShowTeeOptions(true)
+    }
   }
 
   const handleTeeSelection = tee => {
     setRoundTee(tee)
+    setShowTeeOptions(false)
   }
 
   return (
@@ -69,6 +78,8 @@ const SelectCourse = () => {
         />
       </div>
       <div className="score-search">
+        <p>Course:</p>
+        <div>{roundCourse?.courseName}</div>
         <i className="fas fa-search"></i>
         <input
           className="search-bar"
@@ -88,23 +99,26 @@ const SelectCourse = () => {
           ))}
         </div>
       </div>
-      <div className="score-tee">
-        <button onClick={handleTeeOptions} className="dropbtn">
-          Select a tee
-        </button>
-        <div id="tee-options">
-          { courseTees && courseTees.map(tee => (
-            <div
-              key={tee.id}
-              className="tee-option-block"
-              onClick={() => handleTeeSelection(tee)}
-            >
-              <div className="tee-options-name">{tee.name}</div>
-            </div>
-          ))}
+      { roundCourse && (
+        <div className="score-tee">
+          <p>Tee:</p>
+          <div className="selected-tee">{roundTee?.teeboxName}</div>
+          <button onClick={renderTeeOptions} className="dropbtn">
+            Select a tee
+          </button>
+          <div id="tee-options">
+            { showTeeOptions && courseTees.map(tee => (
+              <div
+                key={tee.id}
+                className="tee-option-block"
+                onClick={() => handleTeeSelection(tee)}
+              >
+                <div className="tee-options-name">{tee.teeboxName}</div>
+              </div>
+            ))}
+          </div>
         </div>
-        <div className="selected-tee">{roundTee}</div>
-      </div>
+      )}
     </div>
   )
 }
