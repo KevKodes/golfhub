@@ -4,6 +4,7 @@ import { NavLink, useHistory } from 'react-router-dom';
 import LogoutButton from '../auth/LogoutButton';
 import { getCourses } from '../../store/course';
 import './Navigation.css'
+import logo from '../../assets/tee.jpeg';
 
 const NavBar = ({ setAuthenticated }) => {
   const dispatch = useDispatch();
@@ -89,7 +90,7 @@ const NavBar = ({ setAuthenticated }) => {
             <div className="placeholder">
               empty
             </div>
-            <img id="nav-logo-pic" src="./tee.jpeg" alt="cool logo" />
+            <img id="nav-logo-pic" src={logo} alt="cool logo" />
             <h1>Golfhub</h1>
           </div>
         </div>

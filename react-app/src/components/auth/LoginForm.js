@@ -3,6 +3,7 @@ import { useDispatch } from "react-redux";
 import { useHistory } from "react-router-dom";
 import { login, setUser } from "../../store/auth";
 import './Splash.css'
+import logo from '../../assets/tee.jpeg';
 
 const LoginForm = ({ authenticated, setAuthenticated }) => {
   const history = useHistory();
@@ -48,7 +49,7 @@ const LoginForm = ({ authenticated, setAuthenticated }) => {
     <div className="login-page">
       <div className="login-wrapper">
         <div className="logo">
-          <img src="./tee.jpeg" alt="cool logo"/>
+          <img src={logo} alt="cool logo"/>
           <h1>Golfhub</h1>
         </div>
         <form onSubmit={onLogin}>
