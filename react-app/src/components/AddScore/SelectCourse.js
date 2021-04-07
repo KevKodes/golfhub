@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { getCourses } from '../../store/course';
 import { getCourseTees } from '../../store/teeboxes';
+import { getTeeboxData } from '../../store/holes';
 import DatePicker from "react-datepicker";
 import './SelectCourse.css';
 import "react-datepicker/dist/react-datepicker.css";
@@ -66,6 +67,7 @@ const SelectCourse = () => {
   const handleTeeSelection = tee => {
     setRoundTee(tee)
     setShowTeeOptions(false)
+    dispatch(getTeeboxData(tee.id))
   }
 
   return (
