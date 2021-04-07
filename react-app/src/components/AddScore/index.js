@@ -6,9 +6,9 @@ import './AddScore.css';
 const AddScore = () => {
   // const sessionUser = useSelector(state => state.session?.user)
   // console.log('the selected tee is: ', roundTee)
-  const teeData = useSelector(state => state.teeboxes?.teeData)
+  const teeData = useSelector(state => state.holes?.teeData)
   console.log(teeData)
-  // need par, index, yardage
+  // need par, handicap, yardage
 
   return (
     <div className="addscore-wrapper">

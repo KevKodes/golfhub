@@ -11,6 +11,7 @@ from .api.auth_routes import auth_routes
 from .api.rounds_routes import rounds_routes
 from .api.course_routes import course_routes
 from .api.teebox_routes import teebox_routes
+from .api.hole_routes import hole_routes
 
 from .seeds import seed_commands
 
@@ -37,6 +38,7 @@ app.register_blueprint(auth_routes, url_prefix='/api/auth')
 app.register_blueprint(rounds_routes, url_prefix='/api/rounds')
 app.register_blueprint(course_routes, url_prefix='/api/courses')
 app.register_blueprint(teebox_routes, url_prefix='/api/teeboxes')
+app.register_blueprint(hole_routes, url_prefix='/api/holes')
 db.init_app(app)
 Migrate(app, db)
 

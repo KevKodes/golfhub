@@ -4,12 +4,14 @@ import sessionReducer from "./auth";
 import roundsReducer from "./rounds";
 import courseReducer from "./course";
 import teeboxReducer from "./teeboxes";
+import holesReducer from "./holes";
 
 const rootReducer = combineReducers({
   session: sessionReducer,
   rounds: roundsReducer,
   courses: courseReducer,
-  teeboxes: teeboxReducer
+  teeboxes: teeboxReducer,
+  holes: holesReducer
 });
 
 let enhancer;
