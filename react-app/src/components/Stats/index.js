@@ -105,38 +105,41 @@ const Stats = () => {
         </div>
         <div className="chart-wrapper">
           <h3>{chartTitle}</h3>
-          <ComposedChart
-            width={900}
-            height={400}
-            data={chartData}
-            margin={{
-              top: 20,
-              right: 80,
-              bottom: 20,
-              left: 20
-            }}
-          >
-            <CartesianGrid stroke="#f5f5f5" />
-            <XAxis
-              dataKey="name"
-              // label={{ value: "Pages", position: "insideBottomRight", offset: 0 }}
-              scale="band"
-              // tick={{width:10}}
-              tick={CustomizedAxisTick}
-            />
-            <YAxis
-              // label={{ value: "Index", angle: -90, position: "insideLeft" }}
-              domain={[60, 110]}
-            />
-            <Tooltip />
-            {/* <Legend /> */}
-            <Bar 
-              dataKey="score"
-              barSize={20}
-              fill="#263D51"
-              label={{ value: "score", position:"top" }} />
-            <Line type="monotone" dataKey="average" stroke="#A7CF3F" strokeWidth={4} />
-          </ComposedChart>
+          { chartData?.length && (
+
+            <ComposedChart
+              width={900}
+              height={400}
+              data={chartData}
+              margin={{
+                top: 20,
+                right: 80,
+                bottom: 20,
+                left: 20
+              }}
+            >
+              <CartesianGrid stroke="#f5f5f5" />
+              <XAxis
+                dataKey="name"
+                // label={{ value: "Pages", position: "insideBottomRight", offset: 0 }}
+                scale="band"
+                // tick={{width:10}}
+                tick={CustomizedAxisTick}
+              />
+              <YAxis
+                // label={{ value: "Index", angle: -90, position: "insideLeft" }}
+                domain={[60, 110]}
+              />
+              <Tooltip />
+              {/* <Legend /> */}
+              <Bar 
+                dataKey="score"
+                barSize={20}
+                fill="#263D51"
+                label={{ value: "score", position:"top" }} />
+              <Line type="monotone" dataKey="average" stroke="#A7CF3F" strokeWidth={4} />
+            </ComposedChart>
+          )}
           <div className="chart-bottom">
             empty
           </div>
