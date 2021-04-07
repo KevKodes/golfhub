@@ -3,11 +3,13 @@ import thunk from "redux-thunk";
 import sessionReducer from "./auth";
 import roundsReducer from "./rounds";
 import courseReducer from "./course";
+import teeboxReducer from "./teeboxes";
 
 const rootReducer = combineReducers({
   session: sessionReducer,
   rounds: roundsReducer,
   courses: courseReducer,
+  teeboxes: teeboxReducer
 });
 
 let enhancer;
