@@ -1,8 +1,9 @@
 const GET_TEE_DATA = 'holes/GET_TEE_DATA'
 
-const getHoles = holes => ({
+const getHoles = (holes, teeboxId) => ({
   type: GET_TEE_DATA,
-  holes
+  holes,
+  teeboxId
 })
 
 export const getTeeboxData = teeboxId => async (dispatch) => {
@@ -10,7 +11,7 @@ export const getTeeboxData = teeboxId => async (dispatch) => {
 
   if (response.ok) {
     const holes = await response.json()
-    dispatch(getHoles(holes.holes))
+    dispatch(getHoles(holes.holes, teeboxId))
   }
 }
 
@@ -21,7 +22,8 @@ const holesReducer = (state = initialState, action) => {
       const loadedHoles = [...action.holes]
       return {
         ...state,
-        teeData: loadedHoles
+        teeData: loadedHoles,
+        teeboxId: action.teeboxId
       }
     default:
       return state
