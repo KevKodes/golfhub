@@ -12,6 +12,9 @@ const AddScore = () => {
   console.log('teeData in the upper component: ', teeData)
   console.log('tee id: ', roundTeeId)
 
+  // set the default inputs
+  
+
   return (
     <div className="addscore-wrapper">
       <h1>ADD SCORE</h1>
@@ -20,7 +23,22 @@ const AddScore = () => {
         { teeData && <ScorecardTop teeData={teeData} /> }
       </div>
       <div className="scorecard-lower">
+        { teeData && (
+          <table className="score-card">
+            <tbody>
+              <tr>
+                <th>Score</th>
+              </tr>
+              <tr>
+                <th>Putts</th>
+              </tr>
+              <tr>
+                <th>Fairway</th>
+              </tr>
+            </tbody>
+          </table>
 
+        )}
       </div>
 
     </div>
