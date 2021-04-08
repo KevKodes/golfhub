@@ -54,15 +54,12 @@ const Dashboard = () => {
       });
       // find the lowest 8 handicaps and take the avg
       allHandicaps = allHandicaps.sort((a, b) => b - a)
-      console.log('sorted handicaps: ', allHandicaps)
       if (allHandicaps.length < 8) {
         const avgHC = allHandicaps.reduce((acc, cv) => acc + cv) / allHandicaps.length
         setHandicap(avgHC)
       } else {
         const lowHandicaps = allHandicaps.slice(0, 7)
-        console.log('low hcs: ', lowHandicaps)
         const avgHC = lowHandicaps.reduce((acc, cv) => acc + cv) / 8
-        console.log('average handicap: ', avgHC)
         setHandicap(Math.round(avgHC * 10) / 10)
       }
     }
