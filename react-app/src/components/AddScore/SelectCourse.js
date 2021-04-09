@@ -68,6 +68,7 @@ const SelectCourse = () => {
     setRoundTee(tee)
     setShowTeeOptions(false)
     dispatch(getTeeboxData(tee.id))
+    //add the round to the state
   }
 
   return (

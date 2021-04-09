@@ -48,11 +48,12 @@
 }
 
 #table-data {
-  width: 40px;
+  width: 50px;
   border: 1px solid #263D51;
 }
 
 #table-data input,
+#table-data select,
 #table-data td {
   width: inherit;
   box-sizing: border-box;
