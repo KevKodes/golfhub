@@ -12,3 +12,42 @@
 .full-addscore form{
   border-bottom: 4px solid #A7CF3F;
 }
+
+.score-card {
+  border-spacing: 0;
+  border-collapse: collapse;
+  table-layout: fixed;
+  margin: 8px;
+}
+
+.score-card td,
+.score-card th {
+  border: 1px solid #263D51;
+  width: 100%;
+  text-align: center;
+  margin: 0;
+  padding: 0;
+}
+
+.wide-col {
+  width: 10%
+}
+
+.scores-input-wrapper {
+  display: flex;
+}
+
+.score-card th {
+  font-weight: 600;
+  background-color: #4B88Cb;
+  color: white;
+}
+
+#table-data {
+  width: 40px;
+}
+
+#table-data input,
+#table-data td {
+  width: inherit;
+}
