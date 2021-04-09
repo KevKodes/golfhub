@@ -1,8 +1,20 @@
-from flask import Blueprint
+from flask import Blueprint, request, jsonify
 from sqlalchemy.orm import joinedload
 from app.models import db, Round, Teebox, Score, Course
 
 rounds_routes = Blueprint('rounds', __name__)
+
+
+@rounds_routes.route('', methods=['POST'])
+def add_round():
+  print('HERE IS THE REQ================: ', request.json['userId'], request.json['teeboxId'], request.json['roundDate'])
+  round = Round(userId=request.json['userId'],
+                teeboxId=request.json['teeboxId'],
+                roundDate=request.json['roundDate'])
+  db.session.add(round)
+  db.session.commit()
+  print('==========NEW ROUND=======', round.to_id_dict())
+  return jsonify(round.to_id_dict())
 
 
 def get_round_data(round_id):
