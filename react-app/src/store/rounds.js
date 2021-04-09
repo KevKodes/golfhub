@@ -1,9 +1,15 @@
 //action types
 const LOAD_DASH = 'rounds/LOAD_DASH';
+const ADD_ROUND = 'rounds/ADD_ROUND';
 
 // action cretors
 const loadDash = (payload) => ({
   type: LOAD_DASH,
+  payload
+})
+
+const addRound = payload => ({
+  type: ADD_ROUND,
   payload
 })
 
@@ -17,6 +23,22 @@ export const getDashboardRounds = (userId) => async (dispatch) => {
   }
 }
 
+export const addNewRound = round => async (dispatch) => {
+  console.log('round in thunk: ', round)
+  const response = await fetch(`/api/rounds`, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(round),
+  });
+
+  if (response.ok) {
+    const round = await response.json()
+    dispatch(addRound(round))
+    return round
+  }
+}
 
 // Reducer
 const initialState = {}
@@ -31,6 +53,11 @@ const roundsReducer = (state = initialState, action) => {
       return {
         ...state,
         dashRounds: loadedRounds
+      }
+    case ADD_ROUND:
+      return {
+        ...state,
+        newRound: action.payload
       }
     default:
       return state;

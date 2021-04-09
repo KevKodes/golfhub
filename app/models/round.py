@@ -32,3 +32,9 @@ class Round(db.Model):
         "rating": self.teebox.rating
       }
     }
+
+
+  def to_id_dict(self):
+    return {
+      "id": self.id
+    }
