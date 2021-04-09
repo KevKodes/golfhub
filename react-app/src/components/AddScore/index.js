@@ -111,308 +111,312 @@ const AddScore = () => {
       <SelectCourse />
       <div className="full-addscore">
         { teeData && <ScorecardTop teeData={teeData} /> }
-      </div>
-      <div className="scorecard-lower">
-        { teeData?.length && (
-          <table className="score-card">
-            <tbody>
-              <tr className="scores-input-wrapper">
-                <th>Score</th>
-                <div id="table-data">
-                  <td>
-                    <input
-                      value={hole1Score}
-                      onChange={e=> setHole1Score(e.target.value)}></input>
-                  </td>
-                </div>
-                <div id="table-data">
-                  <td>
-                    <input
-                      value={hole2Score}
-                      onChange={e=> setHole2Score(e.target.value)}></input>
-                  </td>
-                </div>
-                <div id="table-data">
-                  <td>
-                    <input
-                      value={hole3Score}
-                      onChange={e=> setHole3Score(e.target.value)}></input>
-                  </td>
-                </div>
-                <div id="table-data">
-                  <td>
-                    <input
-                      value={hole4Score}
-                      onChange={e=> setHole4Score(e.target.value)}></input>
-                  </td>
-                </div>
-                <div id="table-data">
-                  <td>
-                    <input
-                      value={hole5Score}
-                      onChange={e=> setHole5Score(e.target.value)}></input>
-                  </td>
-                </div>
-                <div id="table-data">
-                  <td>
-                    <input
-                      value={hole6Score}
-                      onChange={e=> setHole6Score(e.target.value)}></input>
-                  </td>
-                </div>
-                <div id="table-data">
-                  <td>
-                    <input
-                      value={hole7Score}
-                      onChange={e=> setHole7Score(e.target.value)}></input>
-                  </td>
-                </div>
-                <div id="table-data">
-                  <td>
-                    <input
-                      value={hole8Score}
-                      onChange={e=> setHole8Score(e.target.value)}></input>
-                  </td>
-                </div>
-                <div id="table-data">
-                  <td>
-                    <input
-                      value={hole9Score}
-                      onChange={e=> setHole9Score(e.target.value)}></input>
-                  </td>
-                </div>
-                <div id="table-data">
-                  <td>
-                    {frontScore}
-                  </td>
-                </div>
-                <div id="table-data">
-                  <td>
-                    <input
-                      value={hole10Score}
-                      onChange={e=> setHole10Score(e.target.value)}></input>
-                  </td>
-                </div>
-                <div id="table-data">
-                  <td>
-                    <input
-                      value={hole11Score}
-                      onChange={e=> setHole11Score(e.target.value)}></input>
-                  </td>
-                </div>
-                <div id="table-data">
-                  <td>
-                    <input
-                      value={hole12Score}
-                      onChange={e=> setHole12Score(e.target.value)}></input>
-                  </td>
-                </div>
-                <div id="table-data">
-                  <td>
-                    <input
-                      value={hole13Score}
-                      onChange={e=> setHole13Score(e.target.value)}></input>
-                  </td>
-                </div>
-                <div id="table-data">
-                  <td>
-                    <input
-                      value={hole14Score}
-                      onChange={e=> setHole14Score(e.target.value)}></input>
-                  </td>
-                </div>
-                <div id="table-data">
-                  <td>
-                    <input
-                      value={hole15Score}
-                      onChange={e=> setHole15Score(e.target.value)}></input>
-                  </td>
-                </div>
-                <div id="table-data">
-                  <td>
-                    <input
-                      value={hole16Score}
-                      onChange={e=> setHole16Score(e.target.value)}></input>
-                  </td>
-                </div>
-                <div id="table-data">
-                  <td>
-                    <input
-                      value={hole17Score}
-                      onChange={e=> setHole17Score(e.target.value)}></input>
-                  </td>
-                </div>
-                <div id="table-data">
-                  <td>
-                    <input
-                      value={hole18Score}
-                      onChange={e=> setHole18Score(e.target.value)}></input>
-                  </td>
-                </div>
-                <div id="table-data">
-                  <td>
-                    {backScore}
-                  </td>
-                </div>
-                <div id="table-data">
-                  <td>
-                    {frontScore + backScore}
-                  </td>
-                </div>
-              </tr>
-              <tr className="scores-input-wrapper">
-                <th>Putts</th>
-                <div id="table-data">
-                  <td>
-                    <input
-                      value={hole1Putts}
-                      onChange={e => setHole1Putts(e.target.value)}></input>
-                  </td>
-                  <div id="table-data">
-                    <td>
-                      <input
-                        value={hole2Putts}
-                        onChange={e => setHole2Putts(e.target.value)}></input>
-                    </td>
+      
+        <div className="scorecard-lower">
+          { teeData?.length && (
+            <table className="score-card">
+              <tbody>
+                <tr className="scores-input-wrapper">
+                  <th>Score</th>
+                  <div className="td-wrapper">
+                    <div id="table-data">
+                      <td>
+                        <input
+                          value={hole1Score}
+                          onChange={e=> setHole1Score(e.target.value)}></input>
+                      </td>
+                    </div>
+                    <div id="table-data">
+                      <td>
+                        <input
+                          value={hole2Score}
+                          onChange={e=> setHole2Score(e.target.value)}></input>
+                      </td>
+                    </div>
+                    <div id="table-data">
+                      <td>
+                        <input
+                          value={hole3Score}
+                          onChange={e=> setHole3Score(e.target.value)}></input>
+                      </td>
+                    </div>
+                    <div id="table-data">
+                      <td>
+                        <input
+                          value={hole4Score}
+                          onChange={e=> setHole4Score(e.target.value)}></input>
+                      </td>
+                    </div>
+                    <div id="table-data">
+                      <td>
+                        <input
+                          value={hole5Score}
+                          onChange={e=> setHole5Score(e.target.value)}></input>
+                      </td>
+                    </div>
+                    <div id="table-data">
+                      <td>
+                        <input
+                          value={hole6Score}
+                          onChange={e=> setHole6Score(e.target.value)}></input>
+                      </td>
+                    </div>
+                    <div id="table-data">
+                      <td>
+                        <input
+                          value={hole7Score}
+                          onChange={e=> setHole7Score(e.target.value)}></input>
+                      </td>
+                    </div>
+                    <div id="table-data">
+                      <td>
+                        <input
+                          value={hole8Score}
+                          onChange={e=> setHole8Score(e.target.value)}></input>
+                      </td>
+                    </div>
+                    <div id="table-data">
+                      <td>
+                        <input
+                          value={hole9Score}
+                          onChange={e=> setHole9Score(e.target.value)}></input>
+                      </td>
+                    </div>
+                    <div id="table-data">
+                      <td>
+                        {frontScore}
+                      </td>
+                    </div>
+                    <div id="table-data">
+                      <td>
+                        <input
+                          value={hole10Score}
+                          onChange={e=> setHole10Score(e.target.value)}></input>
+                      </td>
+                    </div>
+                    <div id="table-data">
+                      <td>
+                        <input
+                          value={hole11Score}
+                          onChange={e=> setHole11Score(e.target.value)}></input>
+                      </td>
+                    </div>
+                    <div id="table-data">
+                      <td>
+                        <input
+                          value={hole12Score}
+                          onChange={e=> setHole12Score(e.target.value)}></input>
+                      </td>
+                    </div>
+                    <div id="table-data">
+                      <td>
+                        <input
+                          value={hole13Score}
+                          onChange={e=> setHole13Score(e.target.value)}></input>
+                      </td>
+                    </div>
+                    <div id="table-data">
+                      <td>
+                        <input
+                          value={hole14Score}
+                          onChange={e=> setHole14Score(e.target.value)}></input>
+                      </td>
+                    </div>
+                    <div id="table-data">
+                      <td>
+                        <input
+                          value={hole15Score}
+                          onChange={e=> setHole15Score(e.target.value)}></input>
+                      </td>
+                    </div>
+                    <div id="table-data">
+                      <td>
+                        <input
+                          value={hole16Score}
+                          onChange={e=> setHole16Score(e.target.value)}></input>
+                      </td>
+                    </div>
+                    <div id="table-data">
+                      <td>
+                        <input
+                          value={hole17Score}
+                          onChange={e=> setHole17Score(e.target.value)}></input>
+                      </td>
+                    </div>
+                    <div id="table-data">
+                      <td>
+                        <input
+                          value={hole18Score}
+                          onChange={e=> setHole18Score(e.target.value)}></input>
+                      </td>
+                    </div>
+                    <div id="table-data">
+                      <td>
+                        {backScore}
+                      </td>
+                    </div>
+                    <div id="table-data">
+                      <td>
+                        {frontScore + backScore}
+                      </td>
+                    </div>
                   </div>
-                  <div id="table-data">
-                    <td>
-                      <input
-                        value={hole3Putts}
-                        onChange={e => setHole3Putts(e.target.value)}></input>
-                    </td>
+                </tr>
+                <tr className="putts-input-wrapper">
+                  <th>Putts</th>
+                  <div className="td-wrapper">
+                    <div id="table-data">
+                      <td>
+                        <input
+                          value={hole1Putts}
+                          onChange={e => setHole1Putts(e.target.value)}></input>
+                      </td>
+                    </div>
+                    <div id="table-data">
+                      <td>
+                        <input
+                          value={hole2Putts}
+                          onChange={e => setHole2Putts(e.target.value)}></input>
+                      </td>
+                    </div>
+                    <div id="table-data">
+                      <td>
+                        <input
+                          value={hole3Putts}
+                          onChange={e => setHole3Putts(e.target.value)}></input>
+                      </td>
+                    </div>
+                    <div id="table-data">
+                      <td>
+                        <input
+                          value={hole4Putts}
+                          onChange={e => setHole4Putts(e.target.value)}></input>
+                      </td>
+                    </div>
+                    <div id="table-data">
+                      <td>
+                        <input
+                          value={hole5Putts}
+                          onChange={e => setHole5Putts(e.target.value)}></input>
+                      </td>
+                    </div>
+                    <div id="table-data">
+                      <td>
+                        <input
+                          value={hole6Putts}
+                          onChange={e => setHole6Putts(e.target.value)}></input>
+                      </td>
+                    </div>
+                    <div id="table-data">
+                      <td>
+                        <input
+                          value={hole7Putts}
+                          onChange={e => setHole7Putts(e.target.value)}></input>
+                      </td>
+                    </div>
+                    <div id="table-data">
+                      <td>
+                        <input
+                          value={hole8Putts}
+                          onChange={e => setHole8Putts(e.target.value)}></input>
+                      </td>
+                    </div>
+                    <div id="table-data">
+                      <td>
+                        <input
+                          value={hole9Putts}
+                          onChange={e => setHole9Putts(e.target.value)}></input>
+                      </td>
+                    </div>
+                    <div id="table-data">
+                      <td>
+                        {frontPutts}
+                      </td>
+                    </div>
+                    <div id="table-data">
+                      <td>
+                        <input
+                          value={hole10Putts}
+                          onChange={e => setHole10Putts(e.target.value)}></input>
+                      </td>
+                    </div>
+                    <div id="table-data">
+                      <td>
+                        <input
+                          value={hole11Putts}
+                          onChange={e => setHole11Putts(e.target.value)}></input>
+                      </td>
+                    </div>
+                    <div id="table-data">
+                      <td>
+                        <input
+                          value={hole12Putts}
+                          onChange={e => setHole12Putts(e.target.value)}></input>
+                      </td>
+                    </div>
+                    <div id="table-data">
+                      <td>
+                        <input
+                          value={hole13Putts}
+                          onChange={e => setHole13Putts(e.target.value)}></input>
+                      </td>
+                    </div>
+                    <div id="table-data">
+                      <td>
+                        <input
+                          value={hole14Putts}
+                          onChange={e => setHole14Putts(e.target.value)}></input>
+                      </td>
+                    </div>
+                    <div id="table-data">
+                      <td>
+                        <input
+                          value={hole15Putts}
+                          onChange={e => setHole15Putts(e.target.value)}></input>
+                      </td>
+                    </div>
+                    <div id="table-data">
+                      <td>
+                        <input
+                          value={hole16Putts}
+                          onChange={e => setHole16Putts(e.target.value)}></input>
+                      </td>
+                    </div>
+                    <div id="table-data">
+                      <td>
+                        <input
+                          value={hole17Putts}
+                          onChange={e => setHole17Putts(e.target.value)}></input>
+                      </td>
+                    </div>
+                    <div id="table-data">
+                      <td>
+                        <input
+                          value={hole18Putts}
+                          onChange={e => setHole18Putts(e.target.value)}></input>
+                      </td>
+                    </div>
+                    <div id="table-data">
+                      <td>
+                        {backPutts}
+                      </td>
+                    </div>
+                    <div id="table-data">
+                      <td>
+                        {frontPutts + backPutts}
+                      </td>
+                    </div>
                   </div>
-                  <div id="table-data">
-                    <td>
-                      <input
-                        value={hole4Putts}
-                        onChange={e => setHole4Putts(e.target.value)}></input>
-                    </td>
-                  </div>
-                  <div id="table-data">
-                    <td>
-                      <input
-                        value={hole5Putts}
-                        onChange={e => setHole5Putts(e.target.value)}></input>
-                    </td>
-                  </div>
-                  <div id="table-data">
-                    <td>
-                      <input
-                        value={hole6Putts}
-                        onChange={e => setHole6Putts(e.target.value)}></input>
-                    </td>
-                  </div>
-                  <div id="table-data">
-                    <td>
-                      <input
-                        value={hole7Putts}
-                        onChange={e => setHole7Putts(e.target.value)}></input>
-                    </td>
-                  </div>
-                  <div id="table-data">
-                    <td>
-                      <input
-                        value={hole8Putts}
-                        onChange={e => setHole8Putts(e.target.value)}></input>
-                    </td>
-                  </div>
-                  <div id="table-data">
-                    <td>
-                      <input
-                        value={hole9Putts}
-                        onChange={e => setHole9Putts(e.target.value)}></input>
-                    </td>
-                  </div>
-                  <div id="table-data">
-                    <td>
-                      {frontPutts}
-                    </td>
-                  </div>
-                  <div id="table-data">
-                    <td>
-                      <input
-                        value={hole10Putts}
-                        onChange={e => setHole10Putts(e.target.value)}></input>
-                    </td>
-                  </div>
-                  <div id="table-data">
-                    <td>
-                      <input
-                        value={hole11Putts}
-                        onChange={e => setHole11Putts(e.target.value)}></input>
-                    </td>
-                  </div>
-                  <div id="table-data">
-                    <td>
-                      <input
-                        value={hole12Putts}
-                        onChange={e => setHole12Putts(e.target.value)}></input>
-                    </td>
-                  </div>
-                  <div id="table-data">
-                    <td>
-                      <input
-                        value={hole13Putts}
-                        onChange={e => setHole13Putts(e.target.value)}></input>
-                    </td>
-                  </div>
-                  <div id="table-data">
-                    <td>
-                      <input
-                        value={hole14Putts}
-                        onChange={e => setHole14Putts(e.target.value)}></input>
-                    </td>
-                  </div>
-                  <div id="table-data">
-                    <td>
-                      <input
-                        value={hole15Putts}
-                        onChange={e => setHole15Putts(e.target.value)}></input>
-                    </td>
-                  </div>
-                  <div id="table-data">
-                    <td>
-                      <input
-                        value={hole16Putts}
-                        onChange={e => setHole16Putts(e.target.value)}></input>
-                    </td>
-                  </div>
-                  <div id="table-data">
-                    <td>
-                      <input
-                        value={hole17Putts}
-                        onChange={e => setHole17Putts(e.target.value)}></input>
-                    </td>
-                  </div>
-                  <div id="table-data">
-                    <td>
-                      <input
-                        value={hole18Putts}
-                        onChange={e => setHole18Putts(e.target.value)}></input>
-                    </td>
-                  </div>
-                  <div id="table-data">
-                    <td>
-                      {backPutts}
-                    </td>
-                  </div>
-                  <div id="table-data">
-                    <td>
-                      {frontPutts + backPutts}
-                    </td>
-                  </div>
-                </div>
-              </tr>
-              <tr>
-                <th>Fairway</th>
-              </tr>
-            </tbody>
-          </table>
+                </tr>
+                <tr>
+                  <th>Fairway</th>
+                </tr>
+              </tbody>
+            </table>
 
-        )}
+          )}
+        </div>
       </div>
-
     </div>
   )
 }

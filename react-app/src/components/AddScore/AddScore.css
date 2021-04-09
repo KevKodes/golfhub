@@ -33,9 +33,13 @@
   width: 10%
 }
 
-.scores-input-wrapper {
+/* .scores-input-wrapper {
   display: flex;
 }
+
+.putts-input-wrapper {
+  display: flex;
+} */
 
 .score-card th {
   font-weight: 600;
@@ -45,9 +49,16 @@
 
 #table-data {
   width: 40px;
+  border: 1px solid #263D51;
 }
 
 #table-data input,
 #table-data td {
   width: inherit;
+  box-sizing: border-box;
+  border: none;
+}
+
+.td-wrapper {
+  display: flex;
 }
