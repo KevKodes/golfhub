@@ -74,26 +74,30 @@ const SelectCourse = () => {
     <div className="select-course-wrapper">
       <div className="select-date">
         <p>Date:</p>
-        <DatePicker
-          selected={roundDate}
-          onChange={date => setRoundDate(date)}
-        />
+        <div className="score-name"></div>
+        <div className="score-pick-date">
+          <DatePicker
+            selected={roundDate}
+            onChange={date => setRoundDate(date)}
+          />
+        </div>
       </div>
       <div className="score-search">
         <p>Course:</p>
-        <div>{roundCourse?.courseName}</div>
-        <i className="fas fa-search"></i>
-        <input
-          className="search-bar"
-          value={searchString}
-          onChange={e => setSearchString(e.target.value)}
-          placeholder="Where did you play?"
-        />
-        <div className="dropdown-search-list">
+        <div className="score-name">{roundCourse?.courseName}</div>
+        <div className="score-search-bar">
+          <i className="fas fa-search"></i>
+          <input
+            value={searchString}
+            onChange={e => setSearchString(e.target.value)}
+            placeholder="Where did you play?"
+          />
+        </div>
+        <div className="score-search-list">
           {showDropdown && searchReturn.map(course => (
             <div
               key={course.id}
-              className="search-list-block"
+              className="score-course-search"
               onClick={() => handleCourseSelection(course)}
             >
               <div className="search-list-course-name">{course.courseName}</div>
@@ -104,18 +108,18 @@ const SelectCourse = () => {
       { roundCourse && (
         <div className="score-tee">
           <p>Tee:</p>
-          <div className="selected-tee">{roundTee?.teeboxName}</div>
-          <button onClick={renderTeeOptions} className="dropbtn">
+          <div className="score-name">{roundTee?.teeboxName}</div>
+          <button onClick={renderTeeOptions} id="dropbtn">
             Select a tee
           </button>
           <div id="tee-options">
             { showTeeOptions && courseTees.map(tee => (
               <div
                 key={tee.id}
-                className="tee-option-block"
+                className="score-course-search"
                 onClick={() => handleTeeSelection(tee)}
               >
-                <div className="tee-options-name">{tee.teeboxName}</div>
+                <div className="search-list-course-name">{tee.teeboxName}</div>
               </div>
             ))}
           </div>

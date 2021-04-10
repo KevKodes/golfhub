@@ -1,3 +1,95 @@
 .select-course-wrapper {
   display: flex;
+  background-color: white;
+  height: 250px;
+}
+
+.select-course-wrapper p {
+  font-size: 18px;
+  color: #263D51;
+}
+
+.select-date {
+  margin: 16px;
+  width: 200px;
+}
+
+/* .select-date p {
+  margin-bottom: 68px;
+} */
+
+.score-pick-date input {
+  padding: 0 8px;
+  height: 40px;
+  border-radius: 20px;
+  border: 1px solid #1C1C1C;
+}
+
+.score-search {
+  margin: 16px;
+  width: 350px;
+}
+
+.score-name {
+  height: 40px;
+}
+
+.score-search-bar {
+  padding: 0 8px;
+  height: 40px;
+  border-radius: 20px;
+  border: 1px solid #1C1C1C;
+  display: flex;
+  align-items: center;
+}
+
+.score-search-bar input {
+  border: none;
+  font-size: 16px;
+  margin-left: 8px;
+  width: 290px;
+  height: 35px;
+}
+
+.score-pick-date input:focus,
+.score-search-bar input:focus {
+  outline: none;
+}
+
+.score-course-search {
+  background-color: white;
+  text-decoration: none;
+  color: #2d333f;
+  display: flex;
+  height: 50px;
+  font-size: 16px;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 16px;
+  border: 1px solid #A7CF3F;
+  position: relative;
+}
+
+.score-course-search:hover {
+  background-color: lightgrey;
+}
+
+.score-tee {
+  margin: 16px 16px 16px 40px;
+  width: 250px;
+}
+
+#dropbtn {
+  background-color: #A7CF3F;
+  border-radius: 20px;
+  border: 1px solid #A7CF3F;
+  height: 40px;
+  padding: 0px 35px;
+  color: #041D2E;
+  font-size: 16px;
+}
+
+#dropbtn:hover {
+  color: white;
+  cursor: pointer;
 }

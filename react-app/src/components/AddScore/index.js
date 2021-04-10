@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from 'react';
+import { useHistory } from 'react-router';
 import { useDispatch, useSelector } from 'react-redux';
 import SelectCourse from './SelectCourse';
 import ScorecardTop from './ScorecardTop';
 import { addNewRound } from '../../store/rounds';
 import './AddScore.css';
-import { useHistory } from 'react-router';
 
 const AddScore = () => {
   const dispatch = useDispatch();
