@@ -64,13 +64,10 @@ const SelectCourse = () => {
     }
   }
 
-  console.log('ROUND DATE: ', roundDate)
-
   const handleTeeSelection = tee => {
     setRoundTee(tee)
     setShowTeeOptions(false)
     dispatch(getTeeboxData(tee.id, roundDate))
-    //add the round to the state
   }
 
   return (
