@@ -147,6 +147,8 @@ const AddScore = () => {
     }
     const addedRound = await dispatch(addNewRound(newRoundData))
     console.log('the round that made it back to the component: ', addedRound)
+
+    // RIGHT HERE I NEED TO ADD IN THE SCORE STATE AND DISPATCH TO DB
     const scores = [hole1Score, hole2Score, hole3Score, hole4Score, hole5Score, hole6Score, hole7Score, hole8Score, hole9Score, hole10Score, hole11Score, hole12Score, hole13Score, hole14Score, hole15Score, hole16Score, hole17Score, hole18Score]
     const putts = [hole1Putts, hole2Putts, hole3Putts, hole4Putts, hole5Putts, hole6Putts, hole7Putts, hole8Putts, hole9Putts, hole10Putts, hole11Putts, hole12Putts, hole13Putts, hole14Putts, hole15Putts, hole16Putts, hole17Putts, hole18Putts]
   }
