@@ -12,7 +12,7 @@ const AddScore = () => {
   const sessionUser = useSelector(state => state.session?.user)
   const teeData = useSelector(state => state.holes?.teeData)
   const roundDate = useSelector(state => state.holes?.newRoundDate)
-  // can get the round teebox id from the holes
+
   const [hole1Score, setHole1Score] = useState(4)
   const [hole2Score, setHole2Score] = useState(4)
   const [hole3Score, setHole3Score] = useState(4)
@@ -72,8 +72,6 @@ const AddScore = () => {
   const [frontScore, setFrontScore] = useState(36)
   const [backScore, setBackScore] = useState(36)
   const [renderFairways, setRenderFairways] = useState(false)
-  
-  console.log('teeData in the upper component: ', teeData)
 
   // set the default inputs
   useEffect(() => {
@@ -117,27 +115,6 @@ const AddScore = () => {
     setBackScore(parseInt(hole10Score) + parseInt(hole11Score) + parseInt(hole12Score) + parseInt(hole13Score) + parseInt(hole14Score) + parseInt(hole15Score) + parseInt(hole16Score) + parseInt(hole17Score) + parseInt(hole18Score))
   }, [hole10Score, hole11Score, hole12Score, hole13Score, hole14Score, hole15Score, hole16Score, hole17Score, hole18Score])
 
-
-  // make a post to the db with an object: round data and score data
-  /*
-  postRound = {
-    roundData: {
-      userId,
-      teeboxId,
-      roundDate
-    },
-    scoreData: {
-      1: {
-        roundId,
-        holeId,
-        score,
-        numPutts,
-        fairway: null, true, or false
-      }
-    }
-  }
-  */
-
   const handleScoreSubmit = async () => {
     // set the new round and get its id to put into the scores
     const newRoundData = {
@@ -146,9 +123,7 @@ const AddScore = () => {
       roundDate
     }
     const addedRound = await dispatch(addNewRound(newRoundData))
-    // console.log('the round that made it back to the component: ', addedRound)
 
-    // RIGHT HERE I NEED TO ADD IN THE SCORE STATE AND DISPATCH TO DB
     const scores = [hole1Score, hole2Score, hole3Score, hole4Score, hole5Score, hole6Score, hole7Score, hole8Score, hole9Score, hole10Score, hole11Score, hole12Score, hole13Score, hole14Score, hole15Score, hole16Score, hole17Score, hole18Score]
     const putts = [hole1Putts, hole2Putts, hole3Putts, hole4Putts, hole5Putts, hole6Putts, hole7Putts, hole8Putts, hole9Putts, hole10Putts, hole11Putts, hole12Putts, hole13Putts, hole14Putts, hole15Putts, hole16Putts, hole17Putts, hole18Putts]
     const fairways = [hole1Fairway, hole2Fairway, hole3Fairway, hole4Fairway, hole5Fairway, hole6Fairway, hole7Fairway, hole8Fairway, hole9Fairway, hole10Fairway, hole11Fairway, hole12Fairway, hole13Fairway, hole14Fairway, hole15Fairway, hole16Fairway, hole17Fairway, hole18Fairway]
@@ -164,7 +139,6 @@ const AddScore = () => {
       };
       newScores.push(holeScore)
     }
-    // console.log('heres the big score object: ', newScores)
     const response = await fetch(`/api/scores`, {
       method: "POST",
       headers: {
@@ -173,8 +147,7 @@ const AddScore = () => {
       body: JSON.stringify(newScores)
     })
     if (response.ok) {
-      console.log('back from posting the scores')
-      // history.push('/')
+      history.push('/')
     }
   }
 
