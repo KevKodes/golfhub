@@ -7,7 +7,7 @@ rounds_routes = Blueprint('rounds', __name__)
 
 @rounds_routes.route('', methods=['POST'])
 def add_round():
-  print('HERE IS THE REQ================: ', request.json['userId'], request.json['teeboxId'], request.json['roundDate'])
+  # print('HERE IS THE REQ================: ', request.json['userId'], request.json['teeboxId'], request.json['roundDate'])
   round = Round(userId=request.json['userId'],
                 teeboxId=request.json['teeboxId'],
                 roundDate=request.json['roundDate'])

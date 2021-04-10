@@ -4,9 +4,11 @@ import SelectCourse from './SelectCourse';
 import ScorecardTop from './ScorecardTop';
 import { addNewRound } from '../../store/rounds';
 import './AddScore.css';
+import { useHistory } from 'react-router';
 
 const AddScore = () => {
   const dispatch = useDispatch();
+  const history = useHistory();
   const sessionUser = useSelector(state => state.session?.user)
   const teeData = useSelector(state => state.holes?.teeData)
   const roundDate = useSelector(state => state.holes?.newRoundDate)
@@ -137,8 +139,6 @@ const AddScore = () => {
   */
 
   const handleScoreSubmit = async () => {
-    console.log('submit actions here')
-
     // set the new round and get its id to put into the scores
     const newRoundData = {
       userId: sessionUser.id,
@@ -146,11 +146,36 @@ const AddScore = () => {
       roundDate
     }
     const addedRound = await dispatch(addNewRound(newRoundData))
-    console.log('the round that made it back to the component: ', addedRound)
+    // console.log('the round that made it back to the component: ', addedRound)
 
     // RIGHT HERE I NEED TO ADD IN THE SCORE STATE AND DISPATCH TO DB
     const scores = [hole1Score, hole2Score, hole3Score, hole4Score, hole5Score, hole6Score, hole7Score, hole8Score, hole9Score, hole10Score, hole11Score, hole12Score, hole13Score, hole14Score, hole15Score, hole16Score, hole17Score, hole18Score]
     const putts = [hole1Putts, hole2Putts, hole3Putts, hole4Putts, hole5Putts, hole6Putts, hole7Putts, hole8Putts, hole9Putts, hole10Putts, hole11Putts, hole12Putts, hole13Putts, hole14Putts, hole15Putts, hole16Putts, hole17Putts, hole18Putts]
+    const fairways = [hole1Fairway, hole2Fairway, hole3Fairway, hole4Fairway, hole5Fairway, hole6Fairway, hole7Fairway, hole8Fairway, hole9Fairway, hole10Fairway, hole11Fairway, hole12Fairway, hole13Fairway, hole14Fairway, hole15Fairway, hole16Fairway, hole17Fairway, hole18Fairway]
+    const roundId = addedRound.id;
+    const newScores = []
+    for (let i = 0; i < 18; i++) {
+      const holeScore = {
+        roundId,
+        holeId: teeData[i].id,
+        score: scores[i],
+        numPutts: putts[i],
+        fairway: fairways[i]
+      };
+      newScores.push(holeScore)
+    }
+    // console.log('heres the big score object: ', newScores)
+    const response = await fetch(`/api/scores`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify(newScores)
+    })
+    if (response.ok) {
+      console.log('back from posting the scores')
+      // history.push('/')
+    }
   }
 
   return (

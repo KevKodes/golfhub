@@ -24,7 +24,6 @@ export const getDashboardRounds = (userId) => async (dispatch) => {
 }
 
 export const addNewRound = round => async (dispatch) => {
-  console.log('round in thunk: ', round)
   const response = await fetch(`/api/rounds`, {
     method: "POST",
     headers: {
