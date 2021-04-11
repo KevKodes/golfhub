@@ -4,13 +4,15 @@ import { NavLink } from 'react-router-dom';
 import { getDashboardRounds } from '../../store/rounds';
 import { 
   ComposedChart,
+  BarChart,
   Bar,
   Line,
   XAxis,
   YAxis,
   CartesianGrid,
   Tooltip,
-  // Legend 
+  Legend,
+  LabelList
 } from 'recharts';
 import './Stats.css';
 
@@ -37,6 +39,7 @@ const Stats = () => {
       let runningHandicap = 0;
       let runningFir = 0;
       let runningGir = 0;
+      let runningPutts = 0;
 
       const startNum = Math.min(19, dashRounds.length - 1)
       for (let i = startNum; i >= 0; i--) {
@@ -46,6 +49,7 @@ const Stats = () => {
         const fDate = wackDate.toDateString();
         const fArr = fDate.split(' ')
         const formattedDate = `${fArr[1]}, ${fArr[2]} ${fArr[3]}`
+        console.log('dates: string, formateed: ', fDate, formattedDate)
         // score calcs
         const score = thisRound.round_data.total_score
         runningScore += score
@@ -55,9 +59,17 @@ const Stats = () => {
         runningHandicap += handicap
         const avgHc = Math.round((runningHandicap / ((startNum + 1) - i)) * 100) / 100
         // putting calcs
-
+        const totalPutts = thisRound.round_data.total_putts
+        runningPutts += totalPutts
+        const avgPutts = Math.round((runningPutts / ((startNum + 1) - i)) * 100) / 100
+        const putts1 = thisRound.round_data.one_putts
+        const putts2 = thisRound.round_data.two_putts * 2
+        const putts3 = thisRound.round_data.three_putts * 3
+        const puttsOther = totalPutts - (putts1 + putts2 + putts3)
         // gir calcs
-
+        const gir = thisRound.round_data.gir
+        runningGir += gir
+        const avgGir = Math.round((runningGir / ((startNum + 1) - i)) * 100) / 100
         // fir calcs
         const fir = (thisRound.round_data.fir) * 100
         runningFir += fir
@@ -71,8 +83,14 @@ const Stats = () => {
           avgHc,
           fir: Math.round(10 * fir) / 10,
           avgFir,
-          // gir,
-          // avgGir
+          gir,
+          avgGir,
+          "1-putts": putts1,
+          "2-putts": putts2,
+          "3-putts": putts3,
+          "other putts": puttsOther,
+          totalPutts,
+          avgPutts
         }
         data.push(newSet);
       }
@@ -133,7 +151,7 @@ const Stats = () => {
     if (chartType === "scoring") {
       const disp = chartData?.length && (
         <ComposedChart
-          width={900}
+          width={1100}
           height={400}
           data={chartData}
           margin={{
@@ -146,20 +164,16 @@ const Stats = () => {
           <CartesianGrid stroke="#f5f5f5" />
           <XAxis
             dataKey="name"
-            // label={{ value: "Pages", position: "insideBottomRight", offset: 0 }}
             scale="band"
-            // tick={{width:10}}
             tick={CustomizedAxisTick}
           />
           <YAxis
-            // label={{ value: "Index", angle: -90, position: "insideLeft" }}
             domain={[60, 110]}
           />
           <Tooltip />
-          {/* <Legend /> */}
           <Bar
             dataKey="score"
-            barSize={20}
+            barSize={30}
             fill="#263D51"
             label={{ value: "score", position: "top" }} />
           <Line type="monotone" dataKey="avgScore" stroke="#A7CF3F" strokeWidth={4} />
@@ -169,7 +183,7 @@ const Stats = () => {
     } else if (chartType === "hc") {
       const disp = chartData?.length && (
         <ComposedChart
-          width={900}
+          width={1100}
           height={400}
           data={chartData}
           margin={{
@@ -191,7 +205,7 @@ const Stats = () => {
           <Tooltip />
           <Bar
             dataKey="handicap"
-            barSize={20}
+            barSize={30}
             fill="#263D51"
             label={{ value: "handicap", position: "top" }} />
           <Line type="monotone" dataKey="avgHc" stroke="#A7CF3F" strokeWidth={4} />
@@ -199,15 +213,71 @@ const Stats = () => {
       )
       setChartDisp(disp)
     } else if (chartType === "putts") {
-      const disp = <div>No Data Avaliable</div>
+      const disp = chartData?.length && (
+        <BarChart
+          width={1100}
+          height={400}
+          data={chartData}
+          margin={{
+            top: 20,
+            right: 80,
+            left: 20,
+            bottom: 20
+          }}
+        >
+          <CartesianGrid strokeDasharray="3 3" />
+          <XAxis
+            dataKey="name"
+            scale="band"
+            tick={CustomizedAxisTick} />
+          <YAxis domain={[0, 40]} />
+          <Tooltip />
+          <Legend />
+          <Bar dataKey="1-putts" stackId="a" fill="#4B88Cb" barSize={30} />
+          <Bar dataKey="2-putts" stackId="a" fill="#263D51" barSize={30} />
+          <Bar dataKey="3-putts" stackId="a" fill="#A7CF3F" barSize={30} />
+          <Bar dataKey="other putts" stackId="a" fill="#1C1C1C" barSize={30}>
+            <LabelList dataKey="totalPutts" position="top" />
+          </Bar>
+        </BarChart>
+      )
       setChartDisp(disp)
     } else if (chartType === "gir") {
-      const disp = <div>No Data Avaliable</div>
+      const disp = chartData?.length && (
+        <ComposedChart
+          width={1100}
+          height={400}
+          data={chartData}
+          margin={{
+            top: 20,
+            right: 80,
+            bottom: 20,
+            left: 20
+          }}
+        >
+          <CartesianGrid stroke="#f5f5f5" />
+          <XAxis
+            dataKey="name"
+            scale="band"
+            tick={CustomizedAxisTick}
+          />
+          <YAxis
+            domain={[0, 18]}
+          />
+          <Tooltip />
+          <Bar
+            dataKey="gir"
+            barSize={20}
+            fill="#263D51"
+            label={{ value: "gir", position: "top" }} />
+          <Line type="monotone" dataKey="avgGir" stroke="#A7CF3F" strokeWidth={4} />
+        </ComposedChart>
+      )
       setChartDisp(disp)
     } else if (chartType === "fir") {
       const disp = chartData?.length && (
         <ComposedChart
-          width={900}
+          width={1100}
           height={400}
           data={chartData}
           margin={{
@@ -229,7 +299,7 @@ const Stats = () => {
           <Tooltip />
           <Bar
             dataKey="fir"
-            barSize={20}
+            barSize={30}
             fill="#263D51"
             label={{ value: "fir", position: "top" }} />
           <Line type="monotone" dataKey="avgFir" stroke="#A7CF3F" strokeWidth={4} />
@@ -256,8 +326,8 @@ const Stats = () => {
             <p onClick={handleScoringClick}>Scoring</p>
             <p onClick={handleHandicapClick}>Handicap</p>
             <p onClick={handlePuttsClick}>Putts</p>
-            <p onClick={handleGirClick}>GIR%</p>
-            <p onClick={handleFirClick}>Driving%</p>
+            <p onClick={handleGirClick}>Greens Hit</p>
+            <p onClick={handleFirClick}>Driving Accuracy</p>
           </div>
           <div className="chart-wrapper">
             <h3>{chartTitle}</h3>

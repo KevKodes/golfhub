@@ -23,6 +23,7 @@ def get_round_data(round_id):
   total_fairways = 0
   total_putts = 0
   one_putts = 0
+  two_putts = 0
   three_putts = 0
   hit_greens = 0
   pars = 0
@@ -34,6 +35,8 @@ def get_round_data(round_id):
     total_putts += score.numPutts
     if score.numPutts == 1:
       one_putts += 1
+    elif score.numPutts == 2:
+      two_putts += 1
     elif score.numPutts == 3:
       three_putts += 1
     if score.fairway != None:
@@ -52,18 +55,18 @@ def get_round_data(round_id):
       pars += 1
 
   fir = hit_fairways / total_fairways
-  gir = hit_greens / 18
   round_data = {
     "total_score": total_score,
     "total_putts": total_putts,
     "fir": fir,
-    "gir": gir,
+    "gir": hit_greens,
     "pars": pars,
     "birdies": birdies,
     "eagles": eagles,
     "three_putts": three_putts,
     "par_saves": par_saves,
-    "one_putts": one_putts
+    "one_putts": one_putts,
+    "two_putts": two_putts
   }
   
   return round_data

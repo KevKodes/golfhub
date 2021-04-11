@@ -2,7 +2,7 @@ import React from 'react';
 import { NavLink } from 'react-router-dom';
 
 const RoundCard = ({ round }) => {
-  const girPercent = Math.floor(round.round_data.gir * 100)
+  const greensHit = round.round_data.gir
   const firPercent = Math.floor(round.round_data.fir * 100)
 
   //format the date
@@ -57,10 +57,10 @@ const RoundCard = ({ round }) => {
     })
   }
 
-  if (parseInt(stonesObj.gir) >= 0.7) {
+  if (parseInt(stonesObj.gir) >= 13) {
     milestones.push({
-      title: "Green Acc%",
-      initial: Math.round(100 * stonesObj.gir) / 100
+      title: "Green Acc",
+      initial: stonesObj.gir
     })
   }
 
@@ -95,9 +95,9 @@ const RoundCard = ({ round }) => {
             </div>
           </div>
           <div className="stats-section">
-            <p>GIR%</p>
+            <p>GIR</p>
             <div className="stats-circle">
-              {girPercent}
+              {greensHit}
             </div>
           </div>
           <div className="stats-section">
@@ -115,7 +115,6 @@ const RoundCard = ({ round }) => {
                 <p>{stone.title}</p>
               </div>
               <div className="milestone-symbol">
-                {/* <i className="fas fa-certificate fa-7x"></i> */}
                 <img src="https://www.thegrint.com/assets/images/trophy_room/gold.png" alt="milestone shield"/>
                 <h2 className="stone-initial">{stone.initial}</h2>
               </div>
