@@ -10,4 +10,9 @@ body {
   font-family: 'HelveticaNeue-Light', Helvetica, sans-serif;
   font-size: 16px;
   
+  background-image: url('https://www.thegrint.com/images/landing/free/background_free.png');
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: center bottom; 
+  background-size: 100% auto;
 }

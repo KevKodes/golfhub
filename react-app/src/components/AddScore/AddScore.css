@@ -2,19 +2,26 @@
   position: relative;
   top: 60px;
   left: 75px;
-  margin: 16px;
+  margin: 30px;
 }
 
 .full-addscore {
   background-color: white;
   margin: 16px 0;
+  width: 1450px;
 }
 
 .scorecard-top-wrapper {
-  padding: 16px;
+  padding-top: 24px;
+  margin: 16px;
 }
 
-.full-addscore form{
+.select-course-wrapper {
+  width: 1450px;
+  margin-bottom: 16px;
+}
+
+.full-addscore form {
   border-bottom: 4px solid #A7CF3F;
 }
 
@@ -80,7 +87,7 @@
   padding: 0px 35px;
   color: #041D2E;
   font-size: 16px;
-  margin: 16px 0;
+  margin: 16px;
 }
 
 #addbtn:hover {

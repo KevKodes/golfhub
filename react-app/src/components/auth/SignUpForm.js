@@ -112,9 +112,6 @@ const SignUpForm = ({authenticated, setAuthenticated}) => {
           <button onClick={() => history.push('/login')}>Log In</button>
         </div>
       </div>
-      <div className="login-image">
-        <img src="https://www.thegrint.com/images/landing/free/background_free.png" alt="just a background"/>
-      </div>
     </div>
   );
 };
