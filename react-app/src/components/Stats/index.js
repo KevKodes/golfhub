@@ -17,6 +17,8 @@ const Stats = () => {
   const dispatch = useDispatch();
   const [chartTitle, setChartTitle] = useState('Scores per Round')
   const [chartData, setChartData] = useState([])
+  const [chartType, setChartType] = useState("scoring")
+  const [chartDisp, setChartDisp] = useState(null)
   const sessionUser = useSelector(state => state.session?.user)
   const dashRounds = useSelector(state => state.rounds?.dashRounds)
 
@@ -77,23 +79,85 @@ const Stats = () => {
   //Stats click handlers
   const handleHandicapClick = () => {
     setChartTitle('Handicap Summary')
+    setChartType('hc')
   }
 
   const handleScoringClick = () => {
     setChartTitle('Scores per Round')
+    setChartType('scoring')
   }
 
   const handlePuttsClick = () => {
     setChartTitle('Putts per Round')
+    setChartType('putts')
   }
 
   const handleGirClick = () => {
     setChartTitle('GIR (Greens in regulation) per round')
+    setChartType('gir')
   }
 
   const handleFirClick = () => {
     setChartTitle('Fairway Accuracy by Round')
+    setChartType('fir')
   }
+
+  // Charts
+  useEffect(() => {
+    if (chartType === "scoring") {
+      const disp = chartData?.length && (
+        <ComposedChart
+          width={900}
+          height={400}
+          data={chartData}
+          margin={{
+            top: 20,
+            right: 80,
+            bottom: 20,
+            left: 20
+          }}
+        >
+          <CartesianGrid stroke="#f5f5f5" />
+          <XAxis
+            dataKey="name"
+            // label={{ value: "Pages", position: "insideBottomRight", offset: 0 }}
+            scale="band"
+            // tick={{width:10}}
+            tick={CustomizedAxisTick}
+          />
+          <YAxis
+            // label={{ value: "Index", angle: -90, position: "insideLeft" }}
+            domain={[60, 110]}
+          />
+          <Tooltip />
+          {/* <Legend /> */}
+          <Bar
+            dataKey="score"
+            barSize={20}
+            fill="#263D51"
+            label={{ value: "score", position: "top" }} />
+          <Line type="monotone" dataKey="average" stroke="#A7CF3F" strokeWidth={4} />
+        </ComposedChart>
+      )
+      setChartDisp(disp)
+    } else if (chartType === "hc") {
+      const disp = <div>No Data Avaliable</div>
+      setChartDisp(disp)
+    } else if (chartType === "putts") {
+      const disp = <div>No Data Avaliable</div>
+      setChartDisp(disp)
+    } else if (chartType === "gir") {
+      const disp = <div>No Data Avaliable</div>
+      setChartDisp(disp)
+    } else if (chartType === "fir") {
+      const disp = <div>No Data Avaliable</div>
+      setChartDisp(disp)
+    } else {
+      const disp = <div>No Data Avaliable</div>
+      setChartDisp(disp)
+    }
+
+  },[chartType, dashRounds, chartData])
 
   return (
     <div className="stats-wrapper">
@@ -112,41 +176,9 @@ const Stats = () => {
         </div>
         <div className="chart-wrapper">
           <h3>{chartTitle}</h3>
-          { chartData?.length && (
-
-            <ComposedChart
-              width={900}
-              height={400}
-              data={chartData}
-              margin={{
-                top: 20,
-                right: 80,
-                bottom: 20,
-                left: 20
-              }}
-            >
-              <CartesianGrid stroke="#f5f5f5" />
-              <XAxis
-                dataKey="name"
-                // label={{ value: "Pages", position: "insideBottomRight", offset: 0 }}
-                scale="band"
-                // tick={{width:10}}
-                tick={CustomizedAxisTick}
-              />
-              <YAxis
-                // label={{ value: "Index", angle: -90, position: "insideLeft" }}
-                domain={[60, 110]}
-              />
-              <Tooltip />
-              {/* <Legend /> */}
-              <Bar 
-                dataKey="score"
-                barSize={20}
-                fill="#263D51"
-                label={{ value: "score", position:"top" }} />
-              <Line type="monotone" dataKey="average" stroke="#A7CF3F" strokeWidth={4} />
-            </ComposedChart>
-          )}
+          <div className="chart-display">
+            {chartDisp}
+          </div>
           <div className="chart-bottom">
             empty
           </div>
