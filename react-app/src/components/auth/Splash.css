@@ -18,6 +18,10 @@ body {
   background-color: white;
 }
 
+#auth-form {
+  z-index: 2;
+}
+
 .logo {
   display: flex;
 }
