@@ -161,7 +161,7 @@ const AddScore = () => {
         <div className="scorecard-lower">
           { teeData?.length && (
             <>
-              <table className="score-card">
+              <table className="add-score-card">
                 <tbody>
                   <tr className="scores-input-wrapper">
                     <th className="wide-col">Score</th>
@@ -613,7 +613,7 @@ const AddScore = () => {
                   </tr>
                 </tbody>
               </table>
-              <button onClick={handleScoreSubmit} id="dropbtn">Add Round</button>
+              <button onClick={handleScoreSubmit} id="addbtn">Add Round</button>
             </>
           )}
         </div>
