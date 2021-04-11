@@ -66,3 +66,9 @@
   color: white;
   margin: 25px;
 }
+
+.add-score-default {
+  background-color: white;
+  padding: 16px;
+  width: 480px;
+}

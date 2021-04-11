@@ -12,8 +12,8 @@ const Dashboard = () => {
   const sessionUser = useSelector(state => state.session?.user)
   const dashRounds = useSelector(state => state.rounds?.dashRounds)
   const [scorecardData, setScorecardData] = useState([])
-  const [handicap, setHandicap] = useState(null)
-  const [scoringAverage, setScoringAverage] = useState(null)
+  const [handicap, setHandicap] = useState('n/a')
+  const [scoringAverage, setScoringAverage] = useState('n/a')
 
   //get the rounds for the user
   useEffect(() => {
@@ -27,9 +27,9 @@ const Dashboard = () => {
   // calculate the handicap
   useEffect(() => {
     let data = []
-    if (dashRounds) {
-      //last 5 scores
-      for (let i = 4; i >= 0; i--) {
+    if (dashRounds?.length) {
+      //last 5 scores or all the scores if less than 5
+      for (let i = Math.min(4, dashRounds.length - 1) ; i >= 0; i--) {
         const eachRound = dashRounds[i]
         let newScoreObj = {
           name: eachRound.roundDate,
@@ -57,7 +57,7 @@ const Dashboard = () => {
       allHandicaps = allHandicaps.sort((a, b) => b - a)
       if (allHandicaps.length < 8) {
         const avgHC = allHandicaps.reduce((acc, cv) => acc + cv) / allHandicaps.length
-        setHandicap(avgHC)
+        setHandicap((Math.round(avgHC * 10) / 10).toFixed(1))
       } else {
         const lowHandicaps = allHandicaps.slice(0, 8)
         const avgHC = lowHandicaps.reduce((acc, cv) => acc + cv) / 8
@@ -72,9 +72,13 @@ const Dashboard = () => {
       <div className="dash-body">
         <div className="dash-body-left">
           <div className="rounds-wrapper">
-            { dashRounds && dashRounds.map((round, idx) => (
+            { dashRounds?.length ? dashRounds.map((round, idx) => (
               <RoundCard key={idx} round={round}/>
-            ))}
+            )) : (
+              <h2>
+                <NavLink to='/add_score'>Add a score</NavLink> to start tracking your stats.
+              </h2>
+            )}
           </div>
         </div>
         <div className="dash-body-right">
