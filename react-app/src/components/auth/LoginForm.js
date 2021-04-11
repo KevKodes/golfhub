@@ -47,12 +47,12 @@ const LoginForm = ({ authenticated, setAuthenticated }) => {
 
   return (
     <div className="login-page">
-      <div className="login-wrapper">
+      <div className="login-wrapper" id="auth-form">
         <div className="logo">
           <img src={logo} alt="cool logo"/>
           <h1>Golfhub</h1>
         </div>
-        <form onSubmit={onLogin}>
+        <form id="auth-form" onSubmit={onLogin}>
           <div>
             {errors.map((error) => (
               <div>{error}</div>

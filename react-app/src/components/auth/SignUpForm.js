@@ -52,7 +52,7 @@ const SignUpForm = ({authenticated, setAuthenticated}) => {
 
   return (
     <div className="login-page">
-      <div className="login-wrapper">
+      <div className="login-wrapper" id="auth-form">
         <div className="logo">
           <img src={logo} alt="cool logo"/>
           <h1>Golfhub</h1>
