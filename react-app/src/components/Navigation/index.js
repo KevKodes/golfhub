@@ -12,6 +12,7 @@ const NavBar = ({ setAuthenticated }) => {
   const [searchString, setSearchString] = useState('');
   const [showDropdown, setShowDropdown] = useState(null);
   const [searchReturn, setSearchReturn] = useState([]);
+  const [randCourse, setRandCourse] = useState(1);
   const courses = useSelector(state => state.courses?.courseList)
   const sessionUser = useSelector(state => state.session?.user)
 
@@ -19,6 +20,18 @@ const NavBar = ({ setAuthenticated }) => {
   useEffect(() => {
     dispatch(getCourses());
   },[dispatch])
+
+  // set a random course as the endpoint for the explor courses icon
+  function randomCourseGen() {
+    if (courses) {
+      const numCourses = courses.length;
+      let randNum = 1 + Math.floor(Math.random() * numCourses)
+      while (randNum === randCourse) {
+        randNum = 1 + Math.floor(Math.random() * numCourses)
+      }
+      setRandCourse(randNum)
+    }
+  }
   
   // logic for when to show the search dropdown
   useEffect(() => {
@@ -49,6 +62,11 @@ const NavBar = ({ setAuthenticated }) => {
     history.push(`/course/${course.id}`)
   }
 
+  const handleCourseExplore = () => {
+    history.push(`/course/${randCourse}`)
+    randomCourseGen()
+  }
+
   return (
     <>
       <div className="sidebar">
@@ -71,6 +89,12 @@ const NavBar = ({ setAuthenticated }) => {
             </NavLink>
             <div className="nav-label">Add a score</div>
           </div>
+          <div className="sidebar-link-wrapper">
+            <div id="rand-course" onClick={handleCourseExplore}>
+              <i className="far fa-flag fa-2x"></i>
+            </div>
+            <div className="nav-label">Explore a course</div>
+          </div>
           <div className="sidebar-separator">
             ___
           </div>
@@ -82,6 +106,9 @@ const NavBar = ({ setAuthenticated }) => {
           </a>
           <a target="_blank" rel="noopener noreferrer" href="https://www.linkedin.com/in/kevin-pitzer/">
             <i className="fab fa-linkedin fa-2x"></i>
+          </a>
+          <a target="_blank" rel="noopener noreferrer" href="https://angel.co/u/kevin-pitzer">
+            <i className="fab fa-angellist fa-2x"></i>
           </a>
         </div>
       </div>

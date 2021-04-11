@@ -82,3 +82,8 @@
   font-size: 16px;
   margin: 16px 0;
 }
+
+#addbtn:hover {
+  cursor: pointer;
+  color: white;
+}

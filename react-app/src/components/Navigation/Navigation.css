@@ -237,6 +237,11 @@ nav li {
 
 .sidebar-links i:hover {
   color: #A7CF3F;
+  cursor: pointer;
+}
+
+#rand-course {
+  margin-top: 2px;
 }
 
 .sidebar-separator {
