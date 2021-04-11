@@ -40,7 +40,7 @@ const ScorecardTop = ({ teeData }) => {
 
   return (
     <div className="scorecard-top-wrapper">
-      <table className="score-card">
+      <table className="add-score-card">
         <thead>
           <tr>
             <th><div className="hole-col">HOLE</div></th>
