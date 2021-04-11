@@ -90,9 +90,6 @@ const LoginForm = ({ authenticated, setAuthenticated }) => {
           <button onClick={handleSignupClick}>Sign Up Free</button>
         </div>
       </div>
-      <div className="login-image">
-        <img src="https://www.thegrint.com/images/landing/free/background_free.png" alt="just a background"/>
-      </div>
     </div>
   );
 };
