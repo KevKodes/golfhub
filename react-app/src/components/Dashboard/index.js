@@ -29,7 +29,7 @@ const Dashboard = () => {
     let data = []
     if (dashRounds) {
       //last 5 scores
-      for (let i = 0; i < 5; i++) {
+      for (let i = 4; i >= 0; i--) {
         const eachRound = dashRounds[i]
         let newScoreObj = {
           name: eachRound.roundDate,

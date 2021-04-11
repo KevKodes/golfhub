@@ -87,7 +87,10 @@
   border: 1px solid #A7CF3F;
   border-radius: 100%;
   font-size: 27px;
-  padding: 35px;
+  height: 105px;
+  width: 105px;
+  line-height: 105px;
+  text-align: center;
 }
 
 /* Milestones */
@@ -132,7 +135,9 @@
   margin: 0;
   position: absolute;
   top: 15px;
-  left: 33px;
+  left: 15px;
+  width: 65px;
+  text-align: center;
 }
 
 /* RIGHT SIDEBAR CARDS */
@@ -150,7 +155,7 @@
   border: 1px solid #D7D7D7;
   border-radius: 10px;
   background-color: white;
-  margin: 16px;
+  margin: 0 16px 16px 16px;
 }
 
 .dash-card h3 {
@@ -239,6 +244,8 @@
 
 .dash-chart-wrapper {
   display: flex;
+  margin-top: 24px;
+  justify-content: center;
 }
 
 .recharts-wrapper {
