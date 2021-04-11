@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import { NavLink } from 'react-router-dom';
 import { getDashboardRounds } from '../../store/rounds';
 import { 
   ComposedChart,
@@ -30,10 +31,11 @@ const Stats = () => {
 
   console.log('heres the data ' ,dashRounds)
   useEffect(() => {
-    if (dashRounds) {
+    if (dashRounds?.length) {
       let data = [];
       let runningScore = 0;
-      for (let i = 19; i >= 0; i--) {
+      const startNum = Math.min(19, dashRounds.length - 1)
+      for (let i = startNum; i >= 0; i--) {
         //format the date
         const wackDate = new Date(dashRounds[i].roundDate);
         const fDate = wackDate.toDateString();
@@ -42,9 +44,9 @@ const Stats = () => {
 
         const score = dashRounds[i].round_data.total_score
         runningScore += score
-        const average = Math.round((runningScore / (20 - i)) * 100) / 100
+        const average = Math.round((runningScore / ((startNum + 1) - i)) * 100) / 100
         const newSet = {
-          name: (20 - i) + '- ' + formattedDate,
+          name: ((startNum + 1) - i) + '- ' + formattedDate,
           average,
           score
         }
@@ -165,27 +167,32 @@ const Stats = () => {
         <h1 id="page-title">Stats</h1>
 
       </div>
-      <div className="stats-body">
-        <div className="stats-menu">
-          <h1>Stats Graphs</h1>
-          <p onClick={handleHandicapClick}>Handicap</p>
-          <p onClick={handleScoringClick}>Scoring</p>
-          <p onClick={handlePuttsClick}>Putts</p>
-          <p onClick={handleGirClick}>GIR%</p>
-          <p onClick={handleFirClick}>Driving%</p>
-        </div>
-        <div className="chart-wrapper">
-          <h3>{chartTitle}</h3>
-          <div className="chart-display">
-            {chartDisp}
+      {dashRounds?.length ? (
+        <div className="stats-body">
+          <div className="stats-menu">
+            <h1>Stats Graphs</h1>
+            <p onClick={handleHandicapClick}>Handicap</p>
+            <p onClick={handleScoringClick}>Scoring</p>
+            <p onClick={handlePuttsClick}>Putts</p>
+            <p onClick={handleGirClick}>GIR%</p>
+            <p onClick={handleFirClick}>Driving%</p>
           </div>
-          <div className="chart-bottom">
-            empty
+          <div className="chart-wrapper">
+            <h3>{chartTitle}</h3>
+            <div className="chart-display">
+              {chartDisp}
+            </div>
+            <div className="chart-bottom">
+              empty
+            </div>
           </div>
         </div>
-      </div>
+      ) : (
+        <h2 className="add-score-default">
+          <NavLink to = '/add_score'>Add a score</NavLink> to start tracking your stats.
+        </h2 >
+      )}
     </div>
-
   )
 }
 
