@@ -69,21 +69,21 @@ const ScorecardTop = ({ teeData }) => {
         </thead>
         <tbody>
           <tr>
-            <th className="wide-col">INDEX</th>
+            <th className="wide-col">Index</th>
             { indexArr && indexArr.map((hc, idx) => (
-              <td key={idx}>{hc}</td>
+              <td id="table-data" key={idx}>{hc}</td>
             )) }
           </tr>
           <tr>
             <th className="wide-col">Par</th>
             { holePars && holePars.map((par, idx) => (
-              <td key={idx}>{par}</td>
+              <td id="table-data" key={idx}>{par}</td>
             )) }
           </tr>
           <tr>
             <th className="wide-col">Hole Lengths</th>
             { holeLengths && holeLengths.map((len, idx) => (
-              <td key={idx}>{len}</td>
+              <td id="table-data" key={idx}>{len}</td>
             )) }
           </tr>
         </tbody>
