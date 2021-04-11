@@ -168,6 +168,28 @@ nav li {
   cursor: pointer;
 }
 
+.nav-user {
+  display: flex;
+  align-items: center;
+  margin: 0 8px;
+}
+
+#nav-name {
+  font-size: 28px;
+  color: #263D51;
+  margin-left: 6px;
+}
+
+#nav-logo-pic-small {
+  width: 30px;
+  height: 39px;
+  position: relative;
+  top: 0px;
+  padding: 6px 11px;
+  border: 1px solid #D7D7D7;
+  border-radius: 100%;
+}
+
 /* ====Side bar navigation=== */
 .sidebar {
   width: 75px;

@@ -26,17 +26,23 @@ const Stats = () => {
     }
   }, [dispatch, sessionUser])
 
-  // console.log('heres the data ' ,dashRounds)
+  console.log('heres the data ' ,dashRounds)
   useEffect(() => {
     if (dashRounds) {
       let data = [];
       let runningScore = 0;
-      for (let i = 0; i < 20; i++) {
+      for (let i = 19; i >= 0; i--) {
+        //format the date
+        const wackDate = new Date(dashRounds[i].roundDate);
+        const fDate = wackDate.toDateString();
+        const fArr = fDate.split(' ')
+        const formattedDate = `${fArr[1]}, ${fArr[2]} ${fArr[3]}`
+
         const score = dashRounds[i].round_data.total_score
         runningScore += score
-        const average = Math.round((runningScore / (i + 1)) * 100) / 100
+        const average = Math.round((runningScore / (20 - i)) * 100) / 100
         const newSet = {
-          name: dashRounds[i].roundDate,
+          name: (20 - i) + '- ' + formattedDate,
           average,
           score
         }
@@ -45,6 +51,8 @@ const Stats = () => {
       setChartData(data)
     }
   },[dashRounds])
+
+  console.log('chart data: ', chartData)
 
   const CustomizedAxisTick = (props) => {
     const { x, y, payload } = props;
@@ -90,8 +98,7 @@ const Stats = () => {
   return (
     <div className="stats-wrapper">
       <div className="stats-header">
-        <h1>Welcome to the user stats page</h1>
-        <p>You are logged in as {sessionUser?.userName}</p>
+        <h1 id="page-title">Stats</h1>
 
       </div>
       <div className="stats-body">

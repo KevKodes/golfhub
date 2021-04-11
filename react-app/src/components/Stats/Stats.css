@@ -9,6 +9,12 @@
 
 .stats-header {
   display: flex;
+  padding-left: 8px;
+}
+
+#page-title {
+  color:#263D51;
+  font-size: 34px;
 }
 
 .stats-body {

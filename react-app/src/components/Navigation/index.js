@@ -13,6 +13,7 @@ const NavBar = ({ setAuthenticated }) => {
   const [showDropdown, setShowDropdown] = useState(null);
   const [searchReturn, setSearchReturn] = useState([]);
   const courses = useSelector(state => state.courses?.courseList)
+  const sessionUser = useSelector(state => state.session?.user)
 
   // get all of the courses
   useEffect(() => {
@@ -24,7 +25,7 @@ const NavBar = ({ setAuthenticated }) => {
     const filterCourses = str => {
       const string = str.toLowerCase();
       const filteredList = courses?.filter(course => (
-        course.courseName.toLowerCase().includes(string) //|| course.cuisineType.toLowerCase().includes(string)
+        course.courseName.toLowerCase().includes(string)
       ))
       return filteredList
     }
@@ -124,6 +125,10 @@ const NavBar = ({ setAuthenticated }) => {
           </li>
           <li>
             <LogoutButton setAuthenticated={setAuthenticated} />
+          </li>
+          <li className="nav-user">
+            <img id="nav-logo-pic-small" src={logo} alt="cool logo" />
+            <div id="nav-name">{sessionUser?.userName}</div>
           </li>
         </ul>
       </nav>
