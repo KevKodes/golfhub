@@ -61,6 +61,11 @@
   height: auto;
 }
 
+.recharts-default-legend {
+  position: relative;
+  top: 90px;
+}
+
 .chart-bottom {
   height: 50px;
   color: white;
