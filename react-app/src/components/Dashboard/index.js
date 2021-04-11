@@ -58,9 +58,9 @@ const Dashboard = () => {
         const avgHC = allHandicaps.reduce((acc, cv) => acc + cv) / allHandicaps.length
         setHandicap(avgHC)
       } else {
-        const lowHandicaps = allHandicaps.slice(0, 7)
+        const lowHandicaps = allHandicaps.slice(0, 8)
         const avgHC = lowHandicaps.reduce((acc, cv) => acc + cv) / 8
-        setHandicap(Math.round(avgHC * 10) / 10)
+        setHandicap((Math.round(avgHC * 10) / 10).toFixed(1))
       }
     }
   },[dashRounds])

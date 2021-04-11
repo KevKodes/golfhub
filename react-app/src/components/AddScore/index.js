@@ -153,7 +153,7 @@ const AddScore = () => {
 
   return (
     <div className="addscore-wrapper">
-      <h1>ADD SCORE</h1>
+      <h1 id="page-title">Add Score</h1>
       <SelectCourse />
       <div className="full-addscore">
         { teeData && <ScorecardTop teeData={teeData} /> }
