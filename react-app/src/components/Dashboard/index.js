@@ -4,6 +4,7 @@ import { NavLink } from 'react-router-dom';
 import { BarChart, Bar, XAxis } from 'recharts';
 import RoundCard from './RoundCard';
 import { getDashboardRounds } from '../../store/rounds';
+import logo from '../../assets/tee.jpeg';
 import './Dashboard.css'
 
 const Dashboard = () => {
@@ -81,7 +82,7 @@ const Dashboard = () => {
             <div className="dash-card user-card">
               <div className="user-card-header">
                 <div className="user-card-img">
-                  <img src="./tee.jpeg" alt="cool logo" />
+                  <img src={logo} alt="golfhub logo" />
                 </div>
                 { sessionUser && (
                   <div className="user-card-info">
