@@ -1,16 +1,11 @@
+<img src="./src/assets/tee.jpeg">
 <h1 align="center">Golfhub</h1>
 
 <p align="center">See my site hosted on heroku
-<br><a href="https://golfhub.herokuapp.com/">OpenEats</a></br></p>
+<br><a href="https://golfhub.herokuapp.com/">Golfhub</a></br></p>
 &nbsp
 
-## About
-
----
-
-OpenEats is a clone of OpenTable. Users can view and search for restaurants in the database 
-by name or cuising type. Signing up allows users to make reservations, see their dining history, and
-save their favorite restaurants to their profile.
+### An app for golfers to explore courses, input rounds, and track stats.
 
 <p>&nbsp;</p>
 
