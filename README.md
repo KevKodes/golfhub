@@ -24,7 +24,9 @@
    - Default values speed up your score entry after a round
 
 <p>&nbsp;</p>
-![Dashboard](./react-app/src/assets/statgraphs.gif)
+
+![Statistics charts](react-app/src/assets/statgraphs.gif)
+
 <p>&nbsp;</p>
 
 ## Technologies used
