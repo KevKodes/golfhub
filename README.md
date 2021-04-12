@@ -1,4 +1,6 @@
-![alt text](./react-app/src/assets/tee.jpeg)
+<p align="center">
+   <img alt="logo" src="./react-app/src/assets/tee.jpeg">
+</p>
 <h1 align="center">Golfhub</h1>
 
 <p align="center">See my site hosted on heroku
