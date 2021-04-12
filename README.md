@@ -11,14 +11,22 @@
 
 <p>&nbsp;</p>
 
-![Home Page](./readme-assets/96C205EF-4829-4739-91C5-687A7BF54FC5_1_105_c.jpeg)
+![Dashboard](./react-app/src/assets/dashboard.jpeg)
 
 ## Key Features
 
 ---
+- Round overview in dashboard
+   - View basic stats and milestones for each round
+- Explore or search for courses
+- Detailed statistical analysis with trends for your last 20 rounds
+- Easy round scores input
+   - Default values speed up your score entry after a round
 
-- 
 <p>&nbsp;</p>
+![Dashboard](./react-app/src/assets/statgraphs.gif)
+<p>&nbsp;</p>
+
 ## Technologies used
 
 ---
@@ -37,8 +45,7 @@
 
 ---
 
-<!-- ![Restaurant Page](./readme-assets/A4E0F1B8-273E-463A-A6E0-9B42B0D2BB48_1_105_c.jpeg) -->
-
+![Dashboard](./react-app/src/assets/coursepage.jpeg)
 ### Obstacles
 
 ---
