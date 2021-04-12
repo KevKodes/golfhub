@@ -16,6 +16,12 @@ save their favorite restaurants to their profile.
 
 ![Home Page](./readme-assets/96C205EF-4829-4739-91C5-687A7BF54FC5_1_105_c.jpeg)
 
+## Key Features
+
+---
+
+- 
+<p>&nbsp;</p>
 ## Technologies used
 
 ---
@@ -28,27 +34,6 @@ save their favorite restaurants to their profile.
 - React
 - Redux
 - All styling was done with raw CSS, no frameworks were used.
-<p>&nbsp;</p>
-
-## Development Environment
-
----
-
-- The database should be generated and seeded with the sequelize commands:
-- `npx dotenv sequelize-cli db:create`
-- `npx dotenv sequelize-cli db:migrate`
-- `npx dotenv sequelize-cli db:seed:all`
-- The project can be run locally through the command line with `npm start` in both the backend and frontend directories
-<p>&nbsp;</p>
-
-## Wiki Documentation
-
----
-
-- [Feature List](https://github.com/KevKodes/golfhub/wiki/Feature-List)
-- [Database Schema](https://github.com/KevKodes/golfhub/wiki/Database-Schema)
-- [Front End Routes](https://github.com/KevKodes/open-eats/wiki/Frontend-Routes)
-- [User Stories](https://github.com/KevKodes/golfhub/wiki/User-Stories)
 <p>&nbsp;</p>
 
 ## Key Technical Features
