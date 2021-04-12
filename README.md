@@ -1,4 +1,4 @@
-<img src="./src/assets/tee.jpeg">
+![alt text](./src/assets/tee.jpeg)
 <h1 align="center">Golfhub</h1>
 
 <p align="center">See my site hosted on heroku
