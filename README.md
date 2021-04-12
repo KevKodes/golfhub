@@ -1,5 +1,5 @@
 <p align="center">
-   <img alt="logo" src="./react-app/src/assets/tee.jpeg">
+   <img width="75px" alt="logo" src="./react-app/src/assets/tee.jpeg">
 </p>
 <h1 align="center">Golfhub</h1>
 
