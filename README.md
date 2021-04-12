@@ -40,6 +40,9 @@
 - SQL Alchemy
 - React
 - Redux
+- Google Maps API
+- Recharts npm package
+- React date-picker npm package
 - All styling was done with raw CSS, no frameworks were used.
 <p>&nbsp;</p>
 
