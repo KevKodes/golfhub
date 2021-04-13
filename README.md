@@ -7,7 +7,7 @@
 <br><a href="https://golfhub.herokuapp.com/">Golfhub</a></br></p>
 &nbsp
 
-### An app for golfers to explore courses, input rounds, and track stats.
+<h3 align="center">An app for golfers to explore courses, input rounds, and track stats.</h3>
 
 <p>&nbsp;</p>
 
