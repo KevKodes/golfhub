@@ -46,11 +46,7 @@
 - All styling was done with raw CSS, no frameworks were used.
 <p>&nbsp;</p>
 
-## Key Technical Features
 
----
 
 ![Dashboard](./react-app/src/assets/coursepage.jpeg)
-### Obstacles
 
----
