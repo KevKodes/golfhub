@@ -22,6 +22,10 @@ body {
   z-index: 2;
 }
 
+.login-errors {
+  color: red;
+}
+
 .logo {
   display: flex;
 }

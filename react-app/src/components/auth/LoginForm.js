@@ -55,7 +55,7 @@ const LoginForm = ({ authenticated, setAuthenticated }) => {
         <form id="auth-form" onSubmit={onLogin}>
           <div>
             {errors.map((error) => (
-              <div>{error}</div>
+              <div className="login-errors">{error}</div>
             ))}
           </div>
           <div>

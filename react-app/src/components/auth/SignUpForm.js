@@ -12,15 +12,21 @@ const SignUpForm = ({authenticated, setAuthenticated}) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [repeatPassword, setRepeatPassword] = useState("");
+  const [errors, setErrors] = useState([]);
 
   const onSignUp = async (e) => {
     e.preventDefault();
+    setErrors([])
     if (password === repeatPassword) {
       const user = await signUp(username, email, password);
       if (!user.errors) {
         dispatch(setUser(user));
         setAuthenticated(true);
+      } else {
+        setErrors(user.errors)
       }
+    } else {
+      setErrors(["Passwords must match"])
     }
   };
 
@@ -57,8 +63,12 @@ const SignUpForm = ({authenticated, setAuthenticated}) => {
           <img src={logo} alt="cool logo"/>
           <h1>Golfhub</h1>
         </div>
-        
         <form onSubmit={onSignUp}>
+          <div>
+            {errors.map((error) => (
+              <div className="login-errors">{error}</div>
+            ))}
+          </div>
           <div>
             <input
               placeholder="Username"
