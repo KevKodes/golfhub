@@ -79,6 +79,10 @@
   display: flex;
 }
 
+.scorecard-errors {
+  color: red;
+}
+
 #addbtn {
   background-color: #A7CF3F;
   border-radius: 20px;
