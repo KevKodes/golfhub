@@ -5,6 +5,7 @@ import RoundInfo from './RoundInfo';
 import { useParams } from 'react-router';
 import { useSelector, useDispatch } from 'react-redux';
 import { getEditRound } from '../../store/rounds';
+import { getTeeboxData } from '../../store/holes'
 import '../AddScore/AddScore.css';
 import './EditRound.css';
 
@@ -20,6 +21,15 @@ const EditRound = () => {
     }
   }, [roundId])
 
+  useEffect(() => {
+    if (roundInfo) {
+      const teeId = roundInfo.round.teeboxId
+      const date = roundInfo.round.roundDate
+      dispatch(getTeeboxData(teeId, date))
+    }
+  }, [roundInfo])
+
+  console.log('round info: ', roundInfo)
   console.log('round info: ', roundInfo)
 
   return (
