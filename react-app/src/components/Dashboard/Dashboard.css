@@ -55,6 +55,17 @@
   padding: 16px;
 }
 
+.inner-card-header {
+  display: flex;
+  justify-content: space-between;
+}
+
+#edit-round {
+  text-decoration: none;
+  color: #263D51;
+  margin: auto 0;
+}
+
 .inner-card h3 {
   font-size: 20px;
   color: #263D51;

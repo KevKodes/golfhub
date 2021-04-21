@@ -72,7 +72,7 @@ def get_round_data(round_id):
   return round_data
 
 
-@rounds_routes.route('/<int:id>')
+@rounds_routes.route('/dashboard/<int:id>')
 def get_dash_rounds(id):
   # Lazy loading
   # rounds_and_tees = Round.query.filter_by(userId=id).all()
@@ -99,3 +99,10 @@ def get_dash_rounds(id):
 
   return {"dashboard_rounds": dashboard_data}
   # return {"rounds": [round.to_dict() for round in rounds_and_tees]}
+
+
+@rounds_routes.route('/<int:roundId>')
+def get_edit_rounds(roundId):
+  round = Round.query.get(roundId)
+  course = Course.query.get(round.teebox.courseId)
+  return {"round": round.to_dict(), "courseName": course.courseName}

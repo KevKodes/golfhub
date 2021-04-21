@@ -10,6 +10,7 @@ import Dashboard from "./components/Dashboard";
 import Stats from "./components/Stats";
 import AddScore from "./components/AddScore";
 import CoursePage from './components/CoursePage';
+import EditRound from './components/EditRound';
 
 function App() {
   const dispatch = useDispatch();
@@ -57,6 +58,9 @@ function App() {
         </ProtectedRoute>
         <ProtectedRoute path="/course/:courseId" exact={true} authenticated={authenticated}>
           <CoursePage />
+        </ProtectedRoute>
+        <ProtectedRoute path="/round/:roundId" exact={true} authenticated={authenticated}>
+          <EditRound />
         </ProtectedRoute>
       </Switch>
     </>

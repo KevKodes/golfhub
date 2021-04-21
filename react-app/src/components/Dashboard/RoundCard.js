@@ -80,7 +80,12 @@ const RoundCard = ({ round }) => {
         <p>{formattedDate} | {round.teebox} Tees</p>
       </div>
       <div className="inner-card">
-        <h3>ROUND STATS</h3>
+        <div className="inner-card-header">
+          <h3>ROUND STATS</h3>
+          <NavLink id="edit-round" to={`/round/${round.roundId}`}>
+            <i className="fas fa-pencil-alt"></i> edit round
+          </NavLink>
+        </div>
         <div className="round-stats">
           <div className="stats-section">
             <p>Score</p>
