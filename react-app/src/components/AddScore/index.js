@@ -79,6 +79,10 @@ const AddScore = () => {
   const frontPuttsArray = [hole1Putts, hole2Putts, hole3Putts, hole4Putts, hole5Putts, hole6Putts, hole7Putts, hole8Putts, hole9Putts]
   const backPuttsArray = [hole10Putts, hole11Putts, hole12Putts, hole13Putts, hole14Putts, hole15Putts, hole16Putts, hole17Putts, hole18Putts]
 
+  // useEffect(() => {
+  //   teeData = {}
+  // }, [])
+
   // set the default inputs
   useEffect(() => {
     if (teeData?.length) {
