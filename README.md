@@ -3,8 +3,8 @@
 </p>
 <h1 align="center">Golfhub</h1>
 
-<p align="center">See my site hosted on heroku
-<br><a href="https://golfhub.herokuapp.com/">Golfhub</a></br></p>
+<p align="center">See my live site hosted on digitalocean
+<br><a href="https://golfhub.kevinpitzer.com/">Golfhub</a></br></p>
 &nbsp
 
 <h3 align="center">An app for golfers to explore courses, save rounds, and track a variety of stats.</h3>
